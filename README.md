@@ -1,1 +1,3 @@
 # Billionar-Y
+
+Composer install
