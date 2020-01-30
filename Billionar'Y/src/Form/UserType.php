@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
@@ -35,6 +36,12 @@ class UserType extends AbstractType
                     'class' => "input_register"
                 ]
             ])
+            ->add('age',  BirthdayType::class, [
+                'attr' => [
+                    'widget' => 'choice',
+                    'label' => 'Date de naissance',
+                ]
+            ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'le mot de passe n\'est pas confirmer.',
@@ -59,6 +66,7 @@ class UserType extends AbstractType
                     'class' => "input_register"
                 ]
             ]);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver)

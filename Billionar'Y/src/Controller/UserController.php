@@ -2,12 +2,13 @@
 
 namespace App\Controller;
 
-use App\Entity\Member;
 use App\Entity\User;
+use App\Entity\Member;
 use App\Form\UserType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
@@ -35,7 +36,7 @@ class UserController extends AbstractController
             $manager -> persist($user); //commit(git)
             $manager -> flush(); // push(git)
 
-            $member->setIdUser($user);
+            $member->setUser($user);
             $member->setBank(0);
             $manager -> persist($member); //commit(git)
             $manager -> flush(); // push(git)
@@ -44,5 +45,74 @@ class UserController extends AbstractController
             return $this->redirectToRoute('register');
         }
         return $this->render('user/register.html.twig', ['UserForm' => $form -> createView()]);
+    }
+
+    /**
+     * @Route("/login", name="login")
+     */
+    public function login(AuthenticationUtils $authenticationUtils)
+    {
+        $error = $authenticationUtils->getLastAuthenticationError();
+        return $this->render('user/login.html.twig', [
+            'error' => $error
+        ]);
+        return $this->render('user/register.html.twig', []);
+    }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout()
+    {
+
+    }
+
+    /**
+     * @Route("/profil", name="profil")
+     */
+    public function profil()
+    {
+        $user = $this->getUser();
+        if($user === null){
+            return $this->redirectToRoute('login');
+        }
+
+        $repository = $this-> getDoctrine() -> getRepository(Member::class);
+        $member = $repository -> getUserProfil($user);
+        $u = $user->getAge();
+        $stringValue = $u->format('Y-m-d H:i:s');
+        $datetime1 = new \DateTime(); // date actuelle
+        $datetime2 = new \DateTime($stringValue);
+        $age = $datetime1->diff($datetime2, true)->y; // le y = nombre d'années ex : 22
+
+        return $this->render('user/profil.html.twig', [
+            'member' => $member,
+            'age' => $age,
+            ]);
+    }
+    
+    /**
+     * @Route("/modifyPassword", name="modifyPassword")
+     */
+    public function modifyPassword(Request $request)
+    {
+        $user = $this->getUser();
+        if($user === null){
+            return $this->redirectToRoute('login');
+        }
+
+        $form = $this -> createForm(UserType::class, $user);
+        $repository = $this-> getDoctrine() -> getRepository(Member::class);
+        $member = $repository -> getUserProfil($user);
+        $u = $user->getAge();
+        $stringValue = $u->format('Y-m-d H:i:s');
+        $datetime1 = new \DateTime(); // date actuelle
+        $datetime2 = new \DateTime($stringValue);
+        $age = $datetime1->diff($datetime2, true)->y; // le y = nombre d'années ex : 22
+
+        return $this->render('user/profil.html.twig', [
+            'member' => $member,
+            'age' => $age,
+            ]);
     }
 }

@@ -51,7 +51,7 @@ class Member
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
      */
-    private $id_user;
+    private $user;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\RankingWinning", mappedBy="id_member")
@@ -140,14 +140,14 @@ class Member
         return $this;
     }
 
-    public function getIdUser(): ?User
+    public function getUser(): ?User
     {
-        return $this->id_user;
+        return $this->user;
     }
 
-    public function setIdUser(?User $id_user): self
+    public function setUser(?User $user): self
     {
-        $this->id_user = $id_user;
+        $this->user = $user;
 
         return $this;
     }

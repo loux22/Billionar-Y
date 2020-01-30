@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}Profil
+{% endblock %}
+
+{% block body %}
+{{ dump(member[0].user) }}
+
+<img width="50px" height="50px" src="{{ asset('/img/')}}{{member[0].user.avatar}}" alt="">
+<p>pseuso : {{member[0].user.pseudo}}</p>
+<p>prenom : {{member[0].user.username}}</p>
+<p>nom de famille : {{member[0].user.lastname}}</p>
+<p>age : {{age}} ans</p>
+
+<p>Bank : {{member[0].bank}} €</p>
+
+{# si c'est null on affiche pas  #}
+{% if member[0].phone != null %}
+<p>numero : {{member[0].phone}}</p>
+{% endif %}
+
+{% if member[0].city != null %}
+<p>ville : {{member[0].city}}</p>
+{% endif %}
+
+{% if member[0].address != null %}
+<p>addresse : {{member[0].address}}</p>
+{% endif %}
+
+{% if member[0].postal != null %}
+<p>code postal : {{member[0].postal}}</p>
+{% endif %}
+
+<button type="submit" name="modifyProfil">Modifier</button>
+
+
+
+
+{% endblock %}
