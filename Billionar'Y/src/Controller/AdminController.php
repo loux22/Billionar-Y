@@ -10,8 +10,8 @@ class AdminController extends AbstractController
     /**
      * @Route("/loginAdmin", name="loginAdmin")
      */
-    public function index()
+    public function login()
     {
-        return $this->render('loginAdmin/index.html.twig', []);
+        return $this->render('admin/loginAdmin.html.twig', []);
     }
 }

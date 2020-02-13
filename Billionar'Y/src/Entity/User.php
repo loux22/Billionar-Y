@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PhpParser\Node\Expr\Cast\String_;
 use Symfony\Component\Validator\Constraints as Error;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -74,6 +75,11 @@ class User implements UserInterface
      * @ORM\Column(type="date")
      */
     private $age;
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
 
     public function getId(): ?int
     {
@@ -177,7 +183,7 @@ class User implements UserInterface
     }
 
     public function getRoles(){
-        return ['ROLE_USER'];
+        return $this->roles;
     }
 
     public function eraseCredentials(){
@@ -197,6 +203,14 @@ class User implements UserInterface
     public function setAge(\DateTimeInterface $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+    
+
+    public function setRoles($roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }
