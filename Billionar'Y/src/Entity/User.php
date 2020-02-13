@@ -77,7 +77,7 @@ class User implements UserInterface
     private $age;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="string")
      */
     private $roles = [];
 
@@ -208,7 +208,7 @@ class User implements UserInterface
     }
     
 
-    public function setRoles($roles): self
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 

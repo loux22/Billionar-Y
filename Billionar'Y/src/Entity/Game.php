@@ -46,16 +46,6 @@ class Game
     /**
      * @ORM\Column(type="integer")
      */
-    private $note;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $nbNote;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $winnings_max;
 
     /**
@@ -63,9 +53,15 @@ class Game
      */
     private $rankingWinnings;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Note", mappedBy="game")
+     */
+    private $notes;
+
     public function __construct()
     {
         $this->rankingWinnings = new ArrayCollection();
+        $this->notes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -133,30 +129,6 @@ class Game
         return $this;
     }
 
-    public function getNote(): ?int
-    {
-        return $this->note;
-    }
-
-    public function setNote(int $note): self
-    {
-        $this->note = $note;
-
-        return $this;
-    }
-
-    public function getNbNote(): ?int
-    {
-        return $this->nbNote;
-    }
-
-    public function setNbNote(int $nbNote): self
-    {
-        $this->nbNote = $nbNote;
-
-        return $this;
-    }
-
     public function getWinningsMax(): ?int
     {
         return $this->winnings_max;
@@ -194,6 +166,37 @@ class Game
             // set the owning side to null (unless already changed)
             if ($rankingWinning->getIdGame() === $this) {
                 $rankingWinning->setIdGame(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Note[]
+     */
+    public function getNotes(): Collection
+    {
+        return $this->notes;
+    }
+
+    public function addNote(Note $note): self
+    {
+        if (!$this->notes->contains($note)) {
+            $this->notes[] = $note;
+            $note->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNote(Note $note): self
+    {
+        if ($this->notes->contains($note)) {
+            $this->notes->removeElement($note);
+            // set the owning side to null (unless already changed)
+            if ($note->getGame() === $this) {
+                $note->setGame(null);
             }
         }
 
