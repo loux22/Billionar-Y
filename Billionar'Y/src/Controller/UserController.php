@@ -18,6 +18,10 @@ class UserController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+        $userlog = $this->getUser();
+        if($userlog != null){
+            return $this->redirectToRoute('games');
+        }
         $user = new User;
         $member = new Member;
 
@@ -32,6 +36,7 @@ class UserController extends AbstractController
             $user->setDateU(new \DateTime());
             $user->setIsActive(true);
             $user->setAvatar('0.png');
+            $user->setRoles('USER');
             $manager = $this -> getDoctrine() -> getManager();
             $manager -> persist($user); //commit(git)
             $manager -> flush(); // push(git)
