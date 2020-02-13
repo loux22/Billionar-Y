@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billonar'Y</title>
-    <link rel="stylesheet" href="/Billionar'Y/public/css/navbar.css">
+    <link rel="stylesheet" href="{{ asset('/css/navbar.css')}}">
     {% block link %}{% endblock %}
 </head>
 <body>
@@ -23,5 +23,6 @@
 		</nav>
 		<div class="clearfix"></div>
 	</header>
+	{% block body %}{% endblock %}
 </body>
 </html>
