@@ -5,6 +5,7 @@
         <title>Billionar'Y - {% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
+        {% block link %}{% endblock %}
     </head>
     <body>
     {% for message in app.flashes('success') %}

@@ -103,8 +103,8 @@ class UserController extends AbstractController
     {
         $user = $this->getUser();
         if($user === null){
-            return $this->redirectToRoute('login');
-        }
+         return $this->redirectToRoute('login');
+         }
 
         $form = $this -> createForm(UserType::class, $user);
         $repository = $this-> getDoctrine() -> getRepository(Member::class);
