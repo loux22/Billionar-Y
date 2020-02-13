@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classement{% endblock %}
+
+{% block body %}
+{{dump(ranking)}}
+
+<table>
+    <thead>
+        <tr>
+            <th>Rang</th>
+            <th>Jeux</th>
+            <th>Pseudo</th>
+            <th>Gains</th>
+            <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for key, value in ranking %}
+        <tr>
+            <td>{{key + 1}}</td>
+            <td>{{value.idGame.name}}</td>
+            <th>{{value.idMember.user.pseudo}}</th>
+            <td>{{value.winning}}</td>
+            <td>{{value.dateR.date|date("m/d/Y")}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

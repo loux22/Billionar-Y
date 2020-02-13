@@ -22,19 +22,17 @@ class RankingWinningRepository extends ServiceEntityRepository
     // /**
     //  * @return RankingWinning[] Returns an array of RankingWinning objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findRankingEarnings()
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('w')
+            ->orderBy('w.winning', 'DESC')
+            ->setMaxResults(100)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?RankingWinning

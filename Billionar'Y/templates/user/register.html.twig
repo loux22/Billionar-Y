@@ -1,14 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 
 {% block body %}
-<h1>Inscription</h1>
-{{form_start(UserForm)}}
+	<h1>Inscription</h1>
+	{{form_start(UserForm)}}
 
-{{form_widget(UserForm)}}
+	{# message erreur à styliser #}
+	{% if form_errors(UserForm.username) %}
+		{{form_errors(UserForm.username)}}
+	{% endif %}
+	{# input à styliser #}
+	{{form_widget(UserForm.username)}}
 
-<button type="submit"> S'inscrire </button>
 
-{{form_end(UserForm)}}
-{% endblock %}
+	{% if form_errors(UserForm.lastname) %}
+		{{form_errors(UserForm.lastname)}}
+	{% endif %}
+	{{form_widget(UserForm.lastname)}}
+
+
+	{% if form_errors(UserForm.mail) %}
+		{{form_errors(UserForm.mail)}}
+	{% endif %}
+	{{form_widget(UserForm.mail)}}
+
+
+	{% if form_errors(UserForm.password.first) %}
+		{{form_errors(UserForm.password.first)}}
+	{% endif %}
+	{{form_widget(UserForm.password.first)}}
+	{{form_widget(UserForm.password.second)}}
+
+
+    {% if form_errors(UserForm.pseudo) %}
+		{{form_errors(UserForm.pseudo)}}
+	{% endif %}
+	{{form_widget(UserForm.pseudo)}}
+
+
+    {% if form_errors(UserForm.age) %}
+		{{form_errors(UserForm.age)}}
+	{% endif %}
+	{{form_widget(UserForm.age)}}
+	
+
+
+<button type="submit">
+	S'inscrire
+</button>
+
+{{form_end(UserForm)}}{% endblock %}
