@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{% for value in games %}
+<a href="{{ path('game', {id : value.id}) }}">
+<div style="border: 1px solid black;">
+    <img width="50px" height="50px" src="{{ asset('/imgGame/')}}{{value.img}}" alt="">
+    <p>{{value.name}}</p>
+    <p>{{value.descriptionG| slice(0,5)}} ...</p>
+    <p>nombre de fois jouer : {{value.nbPlay}}</p>
+    <p>note : {{value.note}}</p>
+</div>
+</a>    
+{% endfor %}
+
+{% endblock %}

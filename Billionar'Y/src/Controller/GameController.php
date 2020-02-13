@@ -22,10 +22,31 @@ class GameController extends AbstractController
         $member = $repo->findAll();
 
         $rep = $this->getDoctrine()->getRepository(Game::class);
-        $member = $rep->findAll();
-
-
+        $game = $rep->findAll();
 
         return $this->render('game/ranking_winning.html.twig', ['ranking' => $ranking]);
+    }
+
+    /**
+     * @Route("/games", name="liste_game")
+     */
+    public function liste_game()
+    {
+        $rep = $this->getDoctrine()->getRepository(Game::class);
+        $games = $rep->findAll();
+
+        return $this->render('game/games.html.twig', ['games' => $games]);
+    }
+
+
+    /**
+     * @Route("/game/{id}", name="game")
+     */
+    public function game($id)
+    {
+        $manager = $this-> getDoctrine() -> getManager();
+        $game = $manager -> find(Game::class, $id);
+
+        return $this->render('game/game.html.twig', ['game' => $game]);
     }
 }
