@@ -16,8 +16,7 @@
         </div>
 
         <div class="space">
-            {% if form_errors(UserForm.pseudo) %} {{form_errors(UserForm.pseudo)}} {% endif %} {{form_widget(UserForm.pseudo,{ 'attr': {'class': 'pd'}})}} {% if form_errors(UserForm.age) %} {{form_errors(UserForm.age)}} {% endif %} {{form_widget(UserForm.age,{ 'attr':{'class':
-            'lol'}})}}
+            {% if form_errors(UserForm.pseudo) %} {{form_errors(UserForm.pseudo)}} {% endif %} {{form_widget(UserForm.pseudo,{ 'attr': {'class': 'pd'}})}} {% if form_errors(UserForm.age) %} {{form_errors(UserForm.age)}} {% endif %} {{form_widget(UserForm.age)}}
         </div>
 
 
@@ -31,16 +30,18 @@
         <div class="space">
             {{form_widget(UserForm.password.second,{ 'attr': {'class': 'lol'}})}}
         </div>
-
-
-
-
-
+        <div class="container ps p-0">
+            <div class="psw">
+                <P>En créant un compte, vous acceptez les <a href="#">Conditions générales de vente</a> de Billionar’y.</P>
+            </div>
+        </div>
 
         <button class="conf" type="submit">Confirmation</button>
 
 
+    </center>
 </div>
-</center>
-
-{{form_end(UserForm)}}{% endblock %}
+<div class="center">
+    <P>Vous possedez déjà compte ? <a href="{{ path('login') }}">Identifiez-vous</a> </P>{# <a href="{{ path('logout') }}">deconnexion</a> #}
+</div>
+{{form_end(UserForm)}} {% endblock %}

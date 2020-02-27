@@ -37,6 +37,7 @@ class UserController extends AbstractController
             $user->setDateU(new \DateTime());
             $user->setIsActive(true);
             $user->setAvatar('0.png');
+
             $manager = $this -> getDoctrine() -> getManager();
             $manager -> persist($user); //commit(git)
             $manager -> flush(); // push(git)

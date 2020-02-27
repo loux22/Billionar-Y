@@ -38,7 +38,7 @@ class UserType extends AbstractType
             ])
             ->add('age',  BirthdayType::class, [
                 'attr' => [
-                    'widget' => 'choice',
+                    'widget' => 'text',
                     'label' => 'Date de naissance',
                 ]
             ])
