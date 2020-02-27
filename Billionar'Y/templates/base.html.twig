@@ -6,48 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billonar'Y</title>
 	<link rel="stylesheet" href="{{ asset('/css/navbar.css')}}">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
 
     {% block link %}{% endblock %}
 </head>
 <body>
     <header>
-		<img class="logo" src="/img/Y-Plateform.png" alt="">
-		<div class="menu-toggle"></div>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<!-- <a class="navbar-brand" href="#">Navbar</a> -->
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			  <span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			  <ul class="navbar-nav">
-				<li class="nav-item active">
-				  <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#">Jeux</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#">Top Players</a>
-				</li>
-				<li class="nav-item dropdown">
-				  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Pseudo
-				  </a>
-				  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<a class="dropdown-item" href="#">Something else here</a>
-				  </div>
-				</li>
-			  </ul>
-			</div>
-		  </nav>
-		<div class="clearfix"></div>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+								<!-- navbar -->
+
+<div class="overlay"></div>
+
+<header class="header__main">
+	<div class="header__logo">
+		<img src="/img/logo.png" alt="Netflix">
+	</div>
+
+	<div class="nav-list-container">
+	<nav class="header__nav">
+		<ul class="nav__list">
+			<li class="nav__item"><a href="#">Accueil</a></li>
+			<li class="nav__item"><a href="#">Jeux</a></li>
+			<li class="nav__item"><a href="#">Top Players</a></li>
+		</ul>
+	</nav>
+		<ul class="nav-profile-list">
+			<p></p>
+			<li><img class="nav-img-profile" src="/Billionar'Y/public/img/0.png" alt=""></li>
+			<li><a href="#">Pseudo</a></li>
+			<li><a href="#">Credit</a></li>
+			<li><img class="icon" src="/Billionar'Y/public/img/icons8-rembobiner-24.png" alt=""></li>
+		</ul>
+	</div>
+</header>
 	</header>
+
+	{# message erreur et success #}
+	{% for message in app.flashes('success') %}
+	<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+
+	{% for message in app.flashes('errors') %}
+	<div class="alert alert-danger">{{ message}}</div>
+	{% endfor %} {# end message erreur et success #}
 	{% block body %}{% endblock %}
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- <script src="/Billionar'Y/public/js/navbar.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </html>
