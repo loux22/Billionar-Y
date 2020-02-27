@@ -6,4 +6,10 @@
     font-family: 'Poppins', sans-serif;
     font-size: large;
     border-radius: 6px;
+    background-color: #39A448;
+}
+
+h1{
+    text-align: center;
+    color: #39A448;
 }

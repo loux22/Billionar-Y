@@ -129,4 +129,13 @@ class UserController extends AbstractController
             'age' => $age,
             ]);
     }
+    /**
+     * @Route("/password/forget", name="passwordForget")
+     * 
+     */
+    public function passwordForget()
+    {
+        return $this->render('user/passwordForget.html.twig', [
+            ]);
+    }
 }
