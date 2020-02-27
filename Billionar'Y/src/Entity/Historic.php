@@ -17,7 +17,7 @@ class Historic
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\game", inversedBy="historics")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="historics")
      */
     private $game;
 
