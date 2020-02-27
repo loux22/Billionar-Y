@@ -58,10 +58,16 @@ class Game
      */
     private $notes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Historic", mappedBy="game")
+     */
+    private $historics;
+
     public function __construct()
     {
         $this->rankingWinnings = new ArrayCollection();
         $this->notes = new ArrayCollection();
+        $this->historics = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -197,6 +203,37 @@ class Game
             // set the owning side to null (unless already changed)
             if ($note->getGame() === $this) {
                 $note->setGame(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Historic[]
+     */
+    public function getHistorics(): Collection
+    {
+        return $this->historics;
+    }
+
+    public function addHistoric(Historic $historic): self
+    {
+        if (!$this->historics->contains($historic)) {
+            $this->historics[] = $historic;
+            $historic->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHistoric(Historic $historic): self
+    {
+        if ($this->historics->contains($historic)) {
+            $this->historics->removeElement($historic);
+            // set the owning side to null (unless already changed)
+            if ($historic->getGame() === $this) {
+                $historic->setGame(null);
             }
         }
 
