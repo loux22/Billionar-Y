@@ -99,6 +99,7 @@ class UserController extends AbstractController
         $datetime2 = new \DateTime($stringValue);
         $age = $datetime1->diff($datetime2, true)->y; // le y = nombre d'années ex : 22
 
+        
         return $this->render('user/profil.html.twig', [
             'member' => $member,
             'age' => $age,
