@@ -3,13 +3,10 @@
 
 <h1>Connexion</h1>
 <form action="{{ path('login') }}" method="post">
-    {% if error %}
-    <div>{{ error.messageKey | trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
     <center>
         <div class=inf>
-            <input class="mai" placeholder="Adresse Mail" required name="_username" type="text">
+            <input class="mai" placeholder="Adresse Mail" required name="_username" type="text" value="{{lastUsername}}">
         </div>
 
         <div class=esp>

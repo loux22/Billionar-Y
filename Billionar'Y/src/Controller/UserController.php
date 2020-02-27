@@ -67,10 +67,7 @@ class UserController extends AbstractController
         if($error){
             $this -> addFlash('errors', 'erreur d\'authentification');
         }
-
-        $error = $authenticationUtils->getLastAuthenticationError();
         return $this->render('user/login.html.twig', [
-            'error' => $error,
             'lastUsername' => $lastUsername
         ]);
     }
