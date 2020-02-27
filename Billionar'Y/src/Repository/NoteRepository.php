@@ -22,19 +22,17 @@ class NoteRepository extends ServiceEntityRepository
     // /**
     //  * @return Note[] Returns an array of Note objects
     //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('n')
-            ->andWhere('n.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('n.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+    
+    public function note($game){
+        $builder = $this -> createQueryBuilder('n');
+        return $builder 
+                -> select("avg(n.note) as note")
+                -> where('n.game = :game')
+                -> setParameter('game', $game)
+                -> getQuery()
+                -> getResult();  
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Note

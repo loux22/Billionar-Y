@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use PhpParser\Node\Expr\Cast\String_;
 use Symfony\Component\Validator\Constraints as Error;
@@ -77,9 +79,20 @@ class User implements UserInterface
     private $age;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="array")
      */
     private $roles = [];
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Historic", mappedBy="user")
+     */
+    private $historics;
+
+    public function __construct()
+    {
+        $this->roles = ['ROLE_USER'];
+        $this->historics = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -206,11 +219,34 @@ class User implements UserInterface
 
         return $this;
     }
-    
 
-    public function setRoles(array $roles): self
+    /**
+     * @return Collection|Historic[]
+     */
+    public function getHistorics(): Collection
     {
-        $this->roles = $roles;
+        return $this->historics;
+    }
+
+    public function addHistoric(Historic $historic): self
+    {
+        if (!$this->historics->contains($historic)) {
+            $this->historics[] = $historic;
+            $historic->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHistoric(Historic $historic): self
+    {
+        if ($this->historics->contains($historic)) {
+            $this->historics->removeElement($historic);
+            // set the owning side to null (unless already changed)
+            if ($historic->getUser() === $this) {
+                $historic->setUser(null);
+            }
+        }
 
         return $this;
     }
