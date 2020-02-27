@@ -1,27 +1,37 @@
 {% extends 'base.html.twig' %} {% block title %}login {% endblock %} {% block link %}
 <link rel="stylesheet" href="{{ asset('/css/login.css')}}"> {% endblock %} {% block body %}
+
 <h1>Connexion</h1>
 <form action="{{ path('login') }}" method="post">
-    {% if error %}
-    <div>{{ error.messageKey | trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
     <center>
         <div class=inf>
-            <input class="mai" placeholder="Mail" required name="_username" type="text">
-        </div>
-        <div class=esp>
-            <input class="mai" placeholder="mot de passe" required name="_password" type="password">
-        </div>
-        <P>mot de passe oublié ?</P>
-        <div>
-            <button class="conf" type="submit">Connexion</button>
+            <input class="mai" placeholder="Adresse Mail" required name="_username" type="text" value="{{lastUsername}}">
         </div>
 
-        <input type="checkbox" checked="checked">
-        <label class="container">Memoriser mon compte</label>
+        <div class=esp>
+            <input class="mai" placeholder="Password" required name="_password" type="password">
+        </div>
+        <div class="container ip p-0">
+            <div class="imp">
+                <input type="checkbox" checked="checked">
+                <label class="m-0 mx-2">Memoriser mon compte</label>
+            </div>
+        </div>
+
+        <div class="container ps p-0">
+            <div class="psw">
+                <P>Mot de passe oublié ?</P>
+            </div>
+        </div>
+
+        <div>
+            <button class="conf" type="submit">Confirmation</button>
+        </div>
+
 
 </form>
 
-<a href="{{ path('register') }}">Vous ne possedez pas de compte ? Creer un compte</a> {# <a href="{{ path('logout') }}">deconnexion</a> #}
+<a href="{{ path('register') }}"></a>
+Vous ne possedez pas de compte ? Créer un compte</a> {# <a href="{{ path('logout') }}">deconnexion</a> #}
 </center> {% endblock %}

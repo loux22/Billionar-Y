@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Member;
+use App\Entity\Note;
 use App\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,7 +37,6 @@ class UserController extends AbstractController
             $user->setDateU(new \DateTime());
             $user->setIsActive(true);
             $user->setAvatar('0.png');
-            $user->setRoles(['USER']);
             $manager = $this -> getDoctrine() -> getManager();
             $manager -> persist($user); //commit(git)
             $manager -> flush(); // push(git)
@@ -47,7 +47,7 @@ class UserController extends AbstractController
             $manager -> flush(); // push(git)
 
             $this -> addFlash('success','Vous étes inscris');
-            return $this->redirectToRoute('register');
+            return $this->redirectToRoute('login');
         }
         return $this->render('user/register.html.twig', ['UserForm' => $form -> createView()]);
     }
@@ -57,11 +57,19 @@ class UserController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
+        $userlog = $this->getUser();
+        if($userlog != null){
+            return $this->redirectToRoute('signup');
+        }
+        $lastUsername = $authenticationUtils -> getLastUsername();
         $error = $authenticationUtils->getLastAuthenticationError();
+
+        if($error){
+            $this -> addFlash('errors', 'erreur d\'authentification');
+        }
         return $this->render('user/login.html.twig', [
-            'error' => $error
+            'lastUsername' => $lastUsername
         ]);
-        return $this->render('user/register.html.twig', []);
     }
 
     /**
@@ -84,12 +92,14 @@ class UserController extends AbstractController
 
         $repository = $this-> getDoctrine() -> getRepository(Member::class);
         $member = $repository -> getUserProfil($user);
+
         $u = $user->getAge();
         $stringValue = $u->format('Y-m-d H:i:s');
         $datetime1 = new \DateTime(); // date actuelle
         $datetime2 = new \DateTime($stringValue);
         $age = $datetime1->diff($datetime2, true)->y; // le y = nombre d'années ex : 22
 
+        
         return $this->render('user/profil.html.twig', [
             'member' => $member,
             'age' => $age,

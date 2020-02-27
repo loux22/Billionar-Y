@@ -3,7 +3,13 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-{{dump(game)}}
+
+<p>{{game.name}}</p>
+<p>{{game.descriptionG}}</p>
+<p>{{game.nbPlay}}</p>
+<img width="50px" height="50px" src="{{ asset('/imgGame/')}}{{game.img}}" alt="">
+<p>{{game.winningsMax}}</p>
+<p>{{note[0].note}}</p>
 
 
 {% endblock %}
