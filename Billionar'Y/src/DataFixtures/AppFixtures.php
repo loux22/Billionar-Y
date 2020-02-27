@@ -3,10 +3,10 @@
 namespace App\DataFixtures;
 
 use App\Entity\Game;
-use App\Entity\Historic;
-use App\Entity\Member;
 use App\Entity\Note;
 use App\Entity\User;
+use App\Entity\Member;
+use App\Entity\Historic;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
