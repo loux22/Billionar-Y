@@ -22,7 +22,7 @@ class GameController extends AbstractController
         $member = $repo->findAll();
 
         $rep = $this->getDoctrine()->getRepository(Game::class);
-        $game = $rep->findAll();
+        $game = $rep->findAll(); 
 
         return $this->render('game/ranking_winning.html.twig', ['ranking' => $ranking]);
     }
