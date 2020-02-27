@@ -3,13 +3,24 @@
 namespace App\Controller;
 
 use App\Entity\Game;
+use App\Entity\Note;
+use App\Entity\User;
 use App\Entity\Member;
 use App\Entity\RankingWinning;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class GameController extends AbstractController
 {
+
+     /**
+     * @Route("/", name="home")
+     */
+    public function home()
+    {
+        return $this->render('game/home.html.twig', []);
+    }
+
     /**
      * @Route("/ranking_winning", name="ranking_winning")
      */
@@ -23,6 +34,9 @@ class GameController extends AbstractController
 
         $rep = $this->getDoctrine()->getRepository(Game::class);
         $game = $rep->findAll(); 
+
+        $repoo = $this->getDoctrine()->getRepository(User::class);
+        $user = $repoo->findAll(); 
 
         return $this->render('game/ranking_winning.html.twig', ['ranking' => $ranking]);
     }
@@ -47,6 +61,12 @@ class GameController extends AbstractController
         $manager = $this-> getDoctrine() -> getManager();
         $game = $manager -> find(Game::class, $id);
 
-        return $this->render('game/game.html.twig', ['game' => $game]);
+        $repo = $this-> getDoctrine() -> getRepository(Note::class);
+        $note = $repo -> note($id);
+
+        return $this->render('game/game.html.twig', [
+            'game' => $game,
+            'note' => $note
+            ]);
     }
 }
