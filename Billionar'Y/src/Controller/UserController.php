@@ -131,4 +131,11 @@ class UserController extends AbstractController
             'age' => $age,
             ]);
     }
+
+    /**
+     * @Route("/recoverPassword", name="recoverPassword")
+     */
+    public function recoverPassword(){
+        return $this->render('user/recoverPassword.html.twig');
+    }
 }
