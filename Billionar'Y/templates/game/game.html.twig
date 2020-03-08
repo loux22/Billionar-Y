@@ -11,5 +11,62 @@
 <p>{{game.winningsMax}}</p>
 <p>{{note[0].note}}</p>
 
+<input class="num1-js" type="number">
+<input class="num2-js" type="number">
+<input class="num3-js" type="number">
 
+<div>moyenne de tour : <span class="tour"></span></div>
+<div>pourcentage gagnant en dessous de 25 tours : <span class="nombre"></span>%</div>
+
+<button type="submit" class="print-js">Tirer</button>
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+
+    const print = document.querySelector('.print-js')
+    let num1 = document.querySelector('.num1-js')
+    let num2 = document.querySelector('.num2-js')
+    let num3 = document.querySelector('.num3-js')
+
+    let span = document.querySelector('.tour')
+    let nombre = document.querySelector('.nombre')
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    function printNum() {
+        let result = 0
+        let gagnant = 0
+        let a = []
+        for (let i = 0; i < 1000; i++) {
+            num1.value = getRandomInt(2000)
+            num2.value = getRandomInt(3000)
+            let count = 0
+
+            while (num1.value != num2.value || num1.value != num3.value || num2.value != num3.value) {
+                num1.value = getRandomInt(10)
+                num2.value = getRandomInt(10)
+                num3.value = getRandomInt(10)
+                count += 1
+            }
+            a.push(count)
+            result += count
+            if(count <= 25){
+                gagnant += 1
+            }
+        }
+        result /= 1000
+
+        console.log(a)
+        span.textContent = result
+        nombre.textContent = gagnant / 10
+    }
+
+    print.addEventListener('click', printNum)
+
+</script>
 {% endblock %}

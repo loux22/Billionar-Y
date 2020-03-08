@@ -3,36 +3,157 @@
 {% endblock %}
 
 {% block body %}
-{{ dump(member[0].user) }}
+	{{ dump(member[0].user) }}
 
-<img width="50px" height="50px" src="{{ asset('/img/')}}{{member[0].user.avatar}}" alt="">
-<p>pseuso : {{member[0].user.pseudo}}</p>
-<p>prenom : {{member[0].user.username}}</p>
-<p>nom de famille : {{member[0].user.lastname}}</p>
-<p>age : {{age}} ans</p>
-
-<p>Bank : {{member[0].bank}} €</p>
-
-{# si c'est null on affiche pas  #}
-{% if member[0].phone != null %}
-<p>numero : {{member[0].phone}}</p>
-{% endif %}
-
-{% if member[0].city != null %}
-<p>ville : {{member[0].city}}</p>
-{% endif %}
-
-{% if member[0].address != null %}
-<p>addresse : {{member[0].address}}</p>
-{% endif %}
-
-{% if member[0].postal != null %}
-<p>code postal : {{member[0].postal}}</p>
-{% endif %}
-
-<button type="submit" name="modifyProfil">Modifier</button>
+	<button type="submit" class="modifyProfil-js">Modifier Profil</button>
+	<button type="submit" class="modifyPassword-js">Modifier Mot de passe</button>
 
 
+<div class="display">
+	<img width="50px" height="50px" src="{{ asset('/avatar/')}}{{member[0].user.avatar}}" alt="">
+	<p>pseuso :
+		{{member[0].user.pseudo}}</p>
+	<p>prenom :
+		{{member[0].user.username}}</p>
+	<p>nom de famille :
+		{{member[0].user.lastname}}</p>
+	<p>age :
+		{{age}}
+		ans</p>
+
+	<p>Bank :
+		{{member[0].bank}}
+		€</p>
+
+	{# si c'est null on affiche pas  #}
+	{% if member[0].phone != null %}
+		<p>numero :
+			{{member[0].phone}}</p>
+	{% endif %}
+
+	{% if member[0].city != null %}
+		<p>ville :
+			{{member[0].city}}</p>
+	{% endif %}
+
+	{% if member[0].address != null %}
+		<p>addresse :
+			{{member[0].address}}</p>
+	{% endif %}
+
+	{% if member[0].postal != null %}
+		<p>code postal :
+			{{member[0].postal}}</p>
+	{% endif %}
+</div>
+
+<div class="formModify">
+	{{form_start(UserModifyForm)}}
+
+	<div class="space">
+		{% if form_errors(UserModifyForm.username) %}
+			{{form_errors(UserModifyForm.username)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.username, { 'attr': {'class': 'lol'} })}}
+
+	</div>
+
+	<div class="space">
+		{% if form_errors(UserModifyForm.lastname) %}
+			{{form_errors(UserModifyForm.lastname)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.lastname, { 'attr': {'class': 'lol'}})}}
+	</div>
+
+	<div class="space">
+		{% if form_errors(UserModifyForm.pseudo) %}
+			{{form_errors(UserModifyForm.pseudo)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.pseudo,{ 'attr': {'class': 'pd'}})}}
+		{% if form_errors(UserModifyForm.age) %}
+			{{form_errors(UserModifyForm.age)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.age)}}
+	</div>
+
+    <div class="space">
+		{% if form_errors(UserModifyForm.file) %}
+			{{form_errors(UserModifyForm.file)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.file)}}
+
+	</div>
+
+    <button type="submit">Confirmer</button>
+
+	{{form_end(UserModifyForm)}}
+</div>
+
+<div class="password">
+<form action="" method="post">
+        <input type="password" placeholder="Ancien mot de passe" name="lastPassword"><br>
+        <input type="password" placeholder="Nouveau mot de passe" name="newPassword"><br>
+        <input type="password" placeholder="Confirmation" name="repeatNewPassword"><br>
+
+        <button type="submit">Confirmer</button>
+
+    </form>
+</div>
 
 
+	<style>
+
+		.display {
+			display: block;
+		}
+
+		.formModify, .password{
+			display: none;
+		}
+	</style>
 {% endblock %}
+
+{% block js %}
+<script>
+    var displayBlock = document.querySelector(".display");
+    var formModify = document.querySelector(".formModify");
+    var password = document.querySelector(".password");
+
+    var modifyProfil = document.querySelector(".modifyProfil-js")
+    var modifyPassword = document.querySelector(".modifyPassword-js")
+
+    function displayForm() {
+        if (password.classList.contains('display')){
+            password.classList.replace('display', 'password');
+            formModify.classList.replace('formModify', 'display');
+        }
+        else if (displayBlock.classList.contains('display')) {
+            displayBlock.classList.replace('display', 'formModify');
+            formModify.classList.replace('formModify', 'display');
+        } else {
+            displayBlock.classList.replace('formModify', 'display');
+            formModify.classList.replace('display', 'formModify');
+        } 
+        
+
+    }
+
+    function displayPassword() {
+        if (formModify.classList.contains('display')){
+            formModify.classList.replace('display', 'formModify');
+            password.classList.replace('password', 'display');
+        }
+        else if (displayBlock.classList.contains('display')) {
+            displayBlock.classList.replace('display', 'password');
+            password.classList.replace('password', 'display');
+        } else {
+            displayBlock.classList.replace('password', 'display');
+            password.classList.replace('display', 'password');
+        }
+    }
+
+    modifyProfil.addEventListener('click', displayForm)
+    modifyPassword.addEventListener('click', displayPassword)
+
+</script>
+{% endblock %}  
