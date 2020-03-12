@@ -7,6 +7,7 @@ use App\Entity\Note;
 use App\Entity\User;
 use App\Entity\Member;
 use App\Entity\RankingWinning;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -56,7 +57,7 @@ class GameController extends AbstractController
     /**
      * @Route("/game/{id}", name="game")
      */
-    public function game($id)
+    public function game($id, Request $request)
     {
         $manager = $this-> getDoctrine() -> getManager();
         $game = $manager -> find(Game::class, $id);
@@ -64,9 +65,17 @@ class GameController extends AbstractController
         $repo = $this-> getDoctrine() -> getRepository(Note::class);
         $note = $repo -> note($id);
 
+        $game1 = $request->request->all();
+        // if($game1){
+        //     $game1 = $game1['num1'];
+        // }
+      
+       
+
         return $this->render('game/game.html.twig', [
             'game' => $game,
-            'note' => $note
+            'note' => $note,
+            'game1' => $game1
             ]);
     }
 }
