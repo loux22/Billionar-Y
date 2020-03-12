@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 {% extends 'base.html.twig' %} 
 {% block title %}Profil
 {% endblock %}
+=======
+>>>>>>> 9472560e0173854f790ae2f3734dfd425ad37743
 
-{% block body %}
-	{{ dump(member[0].user) }}
+	{% extends 'base.html.twig' %}
+	{% block link %}
+	<link rel="stylesheet" href="{{ asset('/css/profil.css')}}">
+	{% endblock %}
+	{% block title %}Profil{% endblock %}
+
+	{% block body %}
+	<!-- {{ dump(member[0].user) }}
 
 	<button type="submit" class="modifyProfil-js">Modifier Profil</button>
 	<button type="submit" class="modifyPassword-js">Modifier Mot de passe</button>
@@ -110,11 +119,33 @@
 		.formModify, .password{
 			display: none;
 		}
-	</style>
-{% endblock %}
+	</style> -->
 
+<div class="container__top">
+	<div class="container__top-profile">
+		<div class="container__top-profile-img">
+			<img src="https://source.unsplash.com/user/erondu" alt="">
+		</div>
+		<div class="container__top-login">
+			<div class="container__top-login-pseudo">
+				<h3>Pseudo</h3>
+			</div>
+			<div class="container__top-login-username">
+				<a href="#">Nom</a>
+				<a href="#">Prénom</a>
+				<a href="#">21 ans</a>
+			</div>
+		</div>
+	</div>
+		<div class="container__top-button">
+			<button type="submit">Modifier mot de passe</button>
+			<button type="submit">Modifier le profil</button>
+		</div>
+</div>
+
+
+{% endblock %}
 {% block js %}
-<script>
     var displayBlock = document.querySelector(".display");
     var formModify = document.querySelector(".formModify");
     var password = document.querySelector(".password");
@@ -155,5 +186,6 @@
     modifyProfil.addEventListener('click', displayForm)
     modifyPassword.addEventListener('click', displayPassword)
 
-</script>
-{% endblock %}  
+{% endblock %}
+
+  
