@@ -7,6 +7,7 @@ use App\Entity\Note;
 use App\Entity\User;
 use App\Entity\Member;
 use App\Entity\Historic;
+use App\Entity\RankingWinning;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -43,6 +44,16 @@ class AppFixtures extends Fixture
             $game->setImg('default.jpg');
             $game->setWinningsMax(rand(100, 100000));
             $manager->persist($game);
+
+            for ($r=0; $r < 15; $r++) { 
+                $ranking = new RankingWinning;
+                $ranking 
+                    -> setIdMember($member)
+                    -> setIdGame($game)
+                    -> setWinning(rand(0,100000))
+                    -> setDateR(new \DateTime());
+                $manager->persist($ranking);
+            }
 
             for ($l = 0; $l < 10; $l++) {
                 $note = new Note;

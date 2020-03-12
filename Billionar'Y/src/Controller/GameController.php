@@ -23,12 +23,23 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/ranking_winning", name="ranking_winning")
+     * @Route("/ranking_winning/{id}", name="ranking_winning")
      */
-    public function ranking_winning()
+    public function ranking_winning($id, Request $request)
     {
+        $currentRoute = $request->attributes->get('_route');
+        $currentUrl = $this->get('router')->generate($currentRoute, array('id' => $id), true);
+        $currentUrl = substr($currentUrl, -1);
+        $currentUrl = intval($currentUrl);  
+
+        if($currentUrl < 1 || $currentUrl > 5){
+            return $this->redirectToRoute('ranking_winning', [
+                'id' => 1]
+            );
+        }
+
         $repository = $this->getDoctrine()->getRepository(RankingWinning::class);
-        $ranking = $repository->findRankingEarnings();
+        $rank = $repository->findRankingEarnings();
 
         $repo = $this->getDoctrine()->getRepository(Member::class);
         $member = $repo->findAll();
@@ -39,7 +50,17 @@ class GameController extends AbstractController
         $repoo = $this->getDoctrine()->getRepository(User::class);
         $user = $repoo->findAll(); 
 
-        return $this->render('game/ranking_winning.html.twig', ['ranking' => $ranking]);
+        $ranking = [];
+        foreach ($rank as $key => $value) {
+            if($key >= 20 * ($id - 1) && $key <= (20 * ($id - 1) + 19)){
+                $ranking[] = $value;
+            } 
+        }
+
+        return $this->render('game/ranking_winning.html.twig', [
+            'ranking' => $ranking,
+            'id' => $id
+            ]);
     }
 
     /**

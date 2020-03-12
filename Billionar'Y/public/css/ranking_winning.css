@@ -19,7 +19,7 @@ table{
 
   
 .table_header td, .table_header th {
-    border: 1px solid #ddd;
+    border-right: 1px solid #ddd;
     padding: 8px;
   }
   
@@ -35,6 +35,14 @@ table{
     color: white;
   }
 
+  .table_header th:first-child{
+    border-top-left-radius: 6px;
+  }
+  .table_header th:last-child{
+    border: none;
+    border-top-right-radius: 6px;
+  }
+
 .switch{
     background-color: #4CAF50;
     text-align: center;
@@ -44,8 +52,18 @@ table{
     display: flex;
     flex-direction: row;
     justify-content: center;
-
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
-body{
-  line-height: 5;
+
+.switch a{
+  color: white;
+}
+
+.switch a:hover{
+  color: white;
+}
+
+.table_body tr{
+  line-height: 3;
 }

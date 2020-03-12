@@ -8,32 +8,6 @@
 
 
 {% block body %}
-
-    {# {{dump(ranking)}}
-
-    <table>
-        <thead>
-            <tr>
-                <th>Rang</th>
-                <th>Jeux</th>
-                <th>Pseudo</th>
-                <th>Gains</th>
-                <th>date</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for key, value in ranking %}
-            <tr>
-                <td>{{key + 1}}</td>
-                <td>{{value.idGame.name}}</td>
-                <th>{{value.idMember.user.pseudo}}</th>
-                <td>{{value.winning}}</td>
-                <td>{{value.dateR.date|date("m/d/Y")}}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>    #}
-
 <h1 class="h1 mt-5" > CLASSEMENT DES JOUEURS</h1>
 <div class="container mt-5">
     <table>
@@ -47,160 +21,35 @@
     </tr>
     </thead>
     <tbody class="table_body">
+        {% for key,value in ranking %}
     <tr>
-        <td>1</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
+        <td>{{key + ((id - 1) * 20) + 1}}</td>
+        <td>{{value.idGame.name}}</td>
+        <td>{{value.idMember.user.pseudo}}</td>
+        <td>{{value.winning}}</td>
+        <td>{{value.dateR.date|date("m/d/Y")}}</td>
     </tr>
-    <tr>
-        <td>2</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>6</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>8</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>9</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>10</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>11</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>12</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>13</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>14</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>15</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>16</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>17</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>18</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>19</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    <tr>
-        <td>20</td>
-        <td>Nom du jeu</td>
-        <td>Pseudo</td>
-        <td>Gains</td>
-        <td>01/31/1999 00:00:00</td>
-    </tr>
-    </tbody>
+    {% endfor %}
+        </tbody>
     </table>
 
     <div class="switch"> 
     
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group mr-2" role="group" aria-label="First group">
-        <button type="button" class="btn btn-secondary"><</button>
-        <button type="button" class="btn btn-secondary">1</button>
-        <button type="button" class="btn btn-secondary">2</button>
-        <button type="button" class="btn btn-secondary">3</button>
-        <button type="button" class="btn btn-secondary">4</button>
-        <button type="button" class="btn btn-secondary">5</button>
-        <button type="button" class="btn btn-secondary">></button>
+        {% if id == 1 %}
+        <a href="{{ path('ranking_winning', {id : 5}) }}" class="btn btn-secondary"><</a> 
+        {% else %}
+        <a href="{{ path('ranking_winning', {id : id - 1}) }}" class="btn btn-secondary"><</a>
+        {% endif %}
+        {% for i in 1..5 %}
+        <a href="{{ path('ranking_winning', {id : i}) }}" class="btn btn-secondary">{{i}}</a>
+        {% endfor %}
+        {% if id == 5 %}
+        <a href="{{ path('ranking_winning', {id : 1}) }}" class="btn btn-secondary">></a> 
+        {% else %}
+        <a href="{{ path('ranking_winning', {id : id + 1}) }}" class="btn btn-secondary">></a>
+        {% endif %}
         </div>
     </div>
 
