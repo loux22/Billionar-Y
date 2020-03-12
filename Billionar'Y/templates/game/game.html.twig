@@ -43,6 +43,14 @@
         num3.value = getRandomInt(10)
         if(num1.value == num2.value && num1.value == num3.value && num2.value == num3.value){
             gains.value = 100
+        } else if(num1.value == num2.value || num1.value == num3.value || num2.value == num3.value){
+            if(num1.value > 0 && num1.value <= 5){
+                gains.value = 1
+            } else if(num1.value > 5 && num1.value <= 9){
+                gains.value = 4
+            } else if(num1.value == 0){
+                gains.value = 10
+            }
         }
     }
 
