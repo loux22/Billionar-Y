@@ -182,4 +182,12 @@ class UserController extends AbstractController
     public function recoverPassword(){
         return $this->render('user/recoverPassword.html.twig');
     }
+
+      /**
+     * @Route("/profilHistoric", name="profilHistoric")
+     */
+    public function ProfilHistoric(){
+        return $this->render('user/profilHistoric.html.twig');
+
+}
 }
