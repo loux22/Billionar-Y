@@ -171,24 +171,7 @@ class UserController extends AbstractController
      */
     public function modifyPassword(Request $request)
     {
-        $user = $this->getUser();
-        if($user === null){
-         return $this->redirectToRoute('login');
-         }
-
-        $form = $this -> createForm(UserType::class, $user);
-        $repository = $this-> getDoctrine() -> getRepository(Member::class);
-        $member = $repository -> getUserProfil($user);
-        $u = $user->getAge();
-        $stringValue = $u->format('Y-m-d H:i:s');
-        $datetime1 = new \DateTime(); // date actuelle
-        $datetime2 = new \DateTime($stringValue);
-        $age = $datetime1->diff($datetime2, true)->y; // le y = nombre d'années ex : 22
-
-        return $this->render('user/profil.html.twig', [
-            'member' => $member,
-            'age' => $age,
-            ]);
+        return $this->render('user/passwordForget.html.twig', []);
     }
 
 
