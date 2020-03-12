@@ -81,7 +81,6 @@
     display: flex;
 }
 
-<<<<<<< HEAD
 nav.menu ul li a.active,
 nav.menu ul li a:hover {
     background: #069370;
@@ -89,10 +88,8 @@ nav.menu ul li a:hover {
     transition: 0.5s;
 }
 
-=======
 .item-container-profil{
     display: flex;
     flex-direction: column;
     padding-top: 50px;
 }
->>>>>>> fc244bb04696620e63a2113f56f77d1ff2f35b01

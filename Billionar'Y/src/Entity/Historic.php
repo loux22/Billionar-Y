@@ -37,7 +37,7 @@ class Historic
     private $total;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="historics")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="historics")
      */
     private $user;
 

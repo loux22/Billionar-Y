@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use PhpParser\Node\Expr\Cast\String_;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Error;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -56,6 +57,8 @@ class User implements UserInterface
      */
     private $avatar;
 
+    private $file;
+
     /**
      * @ORM\Column(type="date")
      */
@@ -87,6 +90,8 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Historic", mappedBy="user")
      */
     private $historics;
+
+
 
     public function __construct()
     {
@@ -249,5 +254,42 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function setFile(UploadedFile $file)
+    {
+        $this -> file = $file;
+        return $this;
+    }
+
+    public function dirFile()
+    {
+        return __DIR__ . '/../../public/avatar/';
+    }
+
+    public function fileUpload()
+    {
+        if($this -> file  != null){
+            $newName = $this -> renameFile($this -> file -> getClientOriginalName());
+            $this -> avatar = $newName;
+            $this -> file -> move($this->dirFile(),$newName);
+        }
+    }
+
+    public function renameFile($nom)
+    {
+        return 'avatar_' . time() . '_' . rand(1,99999) . '_' . $nom;
+    }  
+
+    public function removeFile()
+    {
+        if(file_exists('/../../public/avatar/' . $this-> avatar) && $this-> avatar != '0.png'){
+            unlink('/../../public/avatar/' . $this-> avatar);
+        }
     }
 }
