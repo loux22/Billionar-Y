@@ -140,6 +140,7 @@
 
 {% endblock %}
 {% block js %}
+<script>
     var displayBlock = document.querySelector(".display");
     var formModify = document.querySelector(".formModify");
     var password = document.querySelector(".password");
@@ -179,7 +180,7 @@
 
     modifyProfil.addEventListener('click', displayForm)
     modifyPassword.addEventListener('click', displayPassword)
-
+</script>
 {% endblock %}
 
   
