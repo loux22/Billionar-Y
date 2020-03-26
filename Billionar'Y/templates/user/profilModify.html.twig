@@ -1,7 +1,13 @@
+<<<<<<< HEAD
+{% extends 'base.html.twig' %} 
+{% block title %}Profil
+{% endblock %}
+=======
+>>>>>>> 9472560e0173854f790ae2f3734dfd425ad37743
 
 	{% extends 'base.html.twig' %}
 	{% block link %}
-	<link rel="stylesheet" href="{{ asset('/css/profil.css')}}">
+	<link rel="stylesheet" href="{{ asset('/css/profilModify.css')}}">
 	{% endblock %}
 	{% block title %}Profil{% endblock %}
 
@@ -166,10 +172,10 @@
 		</div>
 
 		<div class="container__bottom-tabl-a">
-			<a href="#">10 / 02 / 1999</a>
+			<input type="date" name="birthday" id="birthday" placeholder="10 / 02 / 1999">
 		</div>
 		<div class="container__bottom-tabl-a">
-			<a href="#">4 rue du chapeau rouge</a>
+			<input type="text" name="adresse" id="adresse" placeholder="4 rue du chapeau rouge">
 		</div>
 		
 		<div class="container__bottom-tabl-a">
@@ -180,11 +186,12 @@
 			<h3>Ville</h3>
 		</div>
 		<div class="container__bottom-tabl-a">
-			<a href="#">test@gmail.com</a>
+			<input type="email" name="email" id="email" placeholder="test@gmail.com" required autofocus>
+			<!-- <a href="#">test@gmail.com</a> -->
 		</div>
 
 		<div class="container__bottom-tabl-a">
-			<a href="#">Sannois</a>
+			<input type="text" name="city" id="city" placeholder="Sannois">
 		</div>
 
 		<div class="container__bottom-tabl-a">
@@ -195,15 +202,15 @@
 			<h3>Code postal</h3>
 		</div>
 		<div class="container__bottom-tabl-a">
-			<a href="#">06.22.15.19.61</a>
+			<input type="tel" name="tel" id="tel" placeholder="06.22.15.19.61">
 		</div>
 		<div class="container__bottom-tabl-a">
-			<a href="#">95110</a>
+			<input type="text" name="dep" id="dep" placeholder="95110">
 		</div>
 	</div>
-	<!-- <div class="container__bottom-button">
+	<div class="container__bottom-button">
 		<button type="submit">Confirmer</button>
-	</div> -->
+	</div>
 </div>
 
 

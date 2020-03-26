@@ -165,6 +165,13 @@ class UserController extends AbstractController
             'UserModifyForm' => $form -> createView(),
             ]);
     }
+    /**
+     * @Route("/profilModifyPassword", name="profilModifyPassword")
+     */
+    public function profilModifyPassword(Request $request)
+    {
+        return $this->render('user/profilModifyPassword.html.twig', []);
+    }
     
     /**
      * @Route("/modifyPassword", name="modifyPassword")
