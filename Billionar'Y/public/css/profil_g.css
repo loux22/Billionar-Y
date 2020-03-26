@@ -31,6 +31,7 @@ nav ul li a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 300px;
     max-height: 500px;
     min-width: 100%
 }
@@ -70,4 +71,18 @@ p {
     width: 310px;
     height: 47px;
     margin: 40px;
+}
+
+.categ {
+    width: 280px;
+    height: 200px;
+    left: 100px;
+    top: 565px;
+}
+
+.categ {
+    width: 280px;
+    height: 200px;
+    left: 420px;
+    top: 565px;
 }
