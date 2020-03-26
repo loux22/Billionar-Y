@@ -73,16 +73,14 @@ p {
     margin: 40px;
 }
 
-.categ {
-    width: 280px;
-    height: 200px;
-    left: 100px;
-    top: 565px;
+.photo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .categ {
-    width: 280px;
-    height: 200px;
-    left: 420px;
-    top: 565px;
+    width: 200px;
+    height: 190px;
 }
