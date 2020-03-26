@@ -74,8 +74,7 @@ p {
 }
 
 .photo {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    
     margin-left: 100px;
     margin-right: 100px;
 }
