@@ -22,19 +22,19 @@ class HistoricRepository extends ServiceEntityRepository
     // /**
     //  * @return Historic[] Returns an array of Historic objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function alreadyGameToday($date, $game)
     {
         return $this->createQueryBuilder('h')
-            ->andWhere('h.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('h.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('h.date = :date')
+            ->setParameter('date', $date)
+            ->andWhere('h.game = :game')
+            ->setParameter('game', $game)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Historic

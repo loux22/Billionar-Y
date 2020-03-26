@@ -28,9 +28,9 @@
 	<div class="nav-list-container">
 	<nav class="header__nav">
 		<ul class="nav__list">
-			<li class="nav__item"><a href="#">Accueil</a></li>
-			<li class="nav__item"><a href="#">Jeux</a></li>
-			<li class="nav__item"><a href="#">Top Players</a></li>
+			<li class="nav__item"><a href="{{ path('home') }}">Accueil</a></li>
+			<li class="nav__item"><a href="{{ path('games') }}">Jeux</a></li>
+			<li class="nav__item"><a href="{{ path('ranking_winning',{'id' : 1}) }}">Top joueurs</a></li>
 			<li class="nav__item">
 
 				<div class="nav-item-container">

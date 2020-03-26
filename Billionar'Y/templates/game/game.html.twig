@@ -3,6 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
+{# {{dump(game1)}} #}
 <p>{{game.name}}</p>
 <p>{{game.descriptionG}}</p>
 <p>{{game.nbPlay}}</p>
@@ -28,15 +29,23 @@
     {% else %}
     <input class="num3-js" name="num3" type="number">
     {% endif %}
+    <button type="submit" class="print-js">Tirer</button>
 
-<button type="submit" class="print-js">Tirer</button>
+    {% if member.bank >= 2 %}
 
     {% if game1.winning is defined %}
     <input class="gains-js" name="winning" type="number" value="{{game1.winning}}">
     {% else %}
     <input class="gains-js" name="winning" type="number">
     {% endif %}
+
+    {% else %}
+    <p>il te faut au moins 2 euros pour jouer à ce jeu</p>
+    {% endif %}
+
 </form>
+
+
 
 
 {% endblock %}
