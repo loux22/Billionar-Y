@@ -31,6 +31,9 @@ nav ul li a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 300px;
+    max-height: 500px;
+    min-width: 100%
 }
 
 .bannerP,
@@ -68,4 +71,24 @@ p {
     width: 310px;
     height: 47px;
     margin: 40px;
+}
+
+.photo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.categ {
+    width: 200px;
+    height: 190px;
+    color: black;
+}
+
+.pic {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 100px;
+    margin-right: 100px;
 }
