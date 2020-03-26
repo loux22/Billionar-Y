@@ -33,7 +33,10 @@ nav ul li a {
     background-size: cover;
     height: 300px;
     max-height: 500px;
-    min-width: 100%
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bannerP,
@@ -44,20 +47,22 @@ nav ul li a {
 }
 
 h1 {
+    text-align: center;
     color: white;
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
-    font-size: 48px;
+    font-size: 60px;
     line-height: 59px;
 }
 
-p {
+h3 {
+    text-align: center;
     color: white;
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 20px;
     line-height: 22px;
 }
 
@@ -78,17 +83,31 @@ p {
     grid-template-columns: repeat(4, 1fr);
     margin-left: 100px;
     margin-right: 100px;
+    column-gap: 30px;
+    row-gap: 30px;
 }
 
 .categ {
-    width: 200px;
-    height: 190px;
-    color: black;
+    width: 100%;
+    height: 100%;
 }
 
-.pic {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin-left: 100px;
-    margin-right: 100px;
+p {
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+.categ img {
+    width: 100%;
+    height: calc(100% - 34px);
+}
+
+.text {
+    background-color: #39A448;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 0px 0px 6px 6px;
 }
