@@ -189,5 +189,13 @@ class UserController extends AbstractController
     public function ProfilHistoric(){
         return $this->render('user/profilHistoric.html.twig');
 
+    }
+
+      /**
+     * @Route("/support", name="support")
+     */
+    public function support(){
+        return $this->render('user/support.html.twig');
+
 }
 }

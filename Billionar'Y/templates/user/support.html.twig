@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %} {% block title %}login {% endblock %} {% block link %}
+<link rel="stylesheet" href="{{ asset('/css/support.css')}}"> {% endblock %} {% block body %}
+
+<h1> Support </h1>
+
+
+    <div class="row">
+
+        <div class="col-4">
+        
+            <h3> Nos conseillés sont à l’écoute et disponible par mail. </h3>
+            <img class="imgleft" src="{{ asset('/img/img1.png')}}" alt="">
+
+
+        </div>
+        <div class="col-8">
+        
+            <img class="imgright mt-2" src="{{ asset('/img/img2.png')}}" alt="">
+            <img class="imgright mt-2" src="{{ asset('/img/img3.png')}}" style="padding-left: 100px;" alt="" >
+            <img class="imgright__b mt-5" src="{{ asset('/img/img4.png')}}" alt="">
+            <img class="imgright__b mt-5" src="{{ asset('/img/img5.png')}}" style="padding-left: 100px;" alt="">
+
+
+
+        
+        </div>
+        
+    </div>
+
+
+{% endblock %}
