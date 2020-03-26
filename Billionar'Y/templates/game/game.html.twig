@@ -3,7 +3,6 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-{{dump(game1)}}
 <p>{{game.name}}</p>
 <p>{{game.descriptionG}}</p>
 <p>{{game.nbPlay}}</p>
@@ -12,13 +11,31 @@
 <p>{{note[0].note}}</p>
 
 <form method="post" >
-<input class="num1-js" name="num1" type="number">
-<input class="num2-js" name="num2" type="number">
-<input class="num3-js" name="num3" type="number">
+    {% if game1.num1 is defined %}
+    <input class="num1-js" name="num1" type="number" value="{{game1.num1}}">
+    {% else %}
+    <input class="num1-js" name="num1" type="number">
+    {% endif %}
+
+    {% if game1.num2 is defined %}
+    <input class="num2-js" name="num2" type="number" value="{{game1.num2}}">
+    {% else %}
+    <input class="num2-js" name="num2" type="number">
+    {% endif %}
+
+    {% if game1.num3 is defined %}
+    <input class="num3-js" name="num3" type="number" value="{{game1.num3}}">
+    {% else %}
+    <input class="num3-js" name="num3" type="number">
+    {% endif %}
 
 <button type="submit" class="print-js">Tirer</button>
 
-<input type="number" name="winning" class="gains-js">
+    {% if game1.winning is defined %}
+    <input class="gains-js" name="winning" type="number" value="{{game1.winning}}">
+    {% else %}
+    <input class="gains-js" name="winning" type="number">
+    {% endif %}
 </form>
 
 
