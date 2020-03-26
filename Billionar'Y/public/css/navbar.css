@@ -6,6 +6,10 @@
     height: 70px;
 }
 
+.nav__list .nav__item a{
+    color: white;
+}
+
 .header__nav .nav__list {
 	display: flex;
     list-style: none;
@@ -31,7 +35,7 @@
 .header__nav .nav__item a {
     padding: 0px 25px;
     height: 100%;
-    color: whitesmoke;
+    /* color: white; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,21 +88,22 @@
 nav.menu ul li a.active,
 nav.menu ul li a:hover {
     background: #069370;
-    color: #fff;
+    color: black;
     transition: 0.5s;
 }
 
-.item-container-profil{
+.item-container-profil li a{
     display: flex;
     flex-direction: column;
     padding-top: 50px;
+    color: black;
 }
 
 
 
 footer{
     background-color: #4b4b4b;
-    position: fixed;
+    position: relative;
     /* bottom: 0; */
     width: 100%;
     bottom: 0%;
