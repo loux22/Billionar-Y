@@ -165,6 +165,13 @@ class UserController extends AbstractController
             'UserModifyForm' => $form -> createView(),
             ]);
     }
+    /**
+     * @Route("/profilModifyPassword", name="profilModifyPassword")
+     */
+    public function profilModifyPassword(Request $request)
+    {
+        return $this->render('user/profilModifyPassword.html.twig', []);
+    }
     
     /**
      * @Route("/modifyPassword", name="modifyPassword")
@@ -188,6 +195,14 @@ class UserController extends AbstractController
      */
     public function ProfilHistoric(){
         return $this->render('user/profilHistoric.html.twig');
+
+    }
+
+      /**
+     * @Route("/support", name="support")
+     */
+    public function support(){
+        return $this->render('user/support.html.twig');
 
 }
 }

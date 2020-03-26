@@ -13,8 +13,8 @@
 
 .mail {
     font-family: Montserrat;
-    height: 40px;
-    width: 384px;
+    height: 50px;
+    width: 70%;
     background: #f8f8f8;
     border: 1px solid #ededed;
     box-sizing: border-box;
@@ -26,6 +26,10 @@
 .renis {
     padding-bottom: 50px;
     padding-top: 50px;
+    
+}
+.btn-renis{
+    padding-right: 164px;
 }
 
 h1{
@@ -46,9 +50,10 @@ h1{
 
 }
 
-.check-m {
-    font-family: Montserrat;
-    font-size: 12px;
-    display: flex;
-   
+p{
+    font-family: 'Montserrat';
+
+}
+.conf-p{
+    padding-right: 410px;
 }

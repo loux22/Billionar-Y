@@ -130,14 +130,29 @@ body{
     padding: none;
     margin: none;
 }
-.container__bottom-tabl-a a{
-    color: black;
+.container__bottom-tabl-a input{
+    width: 40%;
+
+
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+
+    background: #F8F8F8;
+    border: 1px solid #EDEDED;
+    box-sizing: border-box;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+
+    transition: 3s;
+    align-items: center;
+    font-family: Franklin Gothic Book;
 }
 .container__bottom-tabl-a input :hover{
     border-color: teal;
 }
 
-/* .container__bottom-button{
+.container__bottom-button{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -151,7 +166,7 @@ body{
 	background:#39A448;
 	color:#fff;
     width: 20%;
-    height: 40px;
+    /* height: 40px; */
 	border-radius:7px;
     border:none;
     
@@ -159,8 +174,8 @@ body{
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
-    line-height: 22px;
+    /* line-height: 22px; */
     align-items: center;
     text-align: center;
-} */
+}
 
