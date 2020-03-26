@@ -3,7 +3,6 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-
 <p>{{game.name}}</p>
 <p>{{game.descriptionG}}</p>
 <p>{{game.nbPlay}}</p>
@@ -11,13 +10,33 @@
 <p>{{game.winningsMax}}</p>
 <p>{{note[0].note}}</p>
 
-<input class="num1-js" type="number">
-<input class="num2-js" type="number">
-<input class="num3-js" type="number">
+<form method="post" >
+    {% if game1.num1 is defined %}
+    <input class="num1-js" name="num1" type="number" value="{{game1.num1}}">
+    {% else %}
+    <input class="num1-js" name="num1" type="number">
+    {% endif %}
+
+    {% if game1.num2 is defined %}
+    <input class="num2-js" name="num2" type="number" value="{{game1.num2}}">
+    {% else %}
+    <input class="num2-js" name="num2" type="number">
+    {% endif %}
+
+    {% if game1.num3 is defined %}
+    <input class="num3-js" name="num3" type="number" value="{{game1.num3}}">
+    {% else %}
+    <input class="num3-js" name="num3" type="number">
+    {% endif %}
 
 <button type="submit" class="print-js">Tirer</button>
 
-<input type="number" class="gains-js">
+    {% if game1.winning is defined %}
+    <input class="gains-js" name="winning" type="number" value="{{game1.winning}}">
+    {% else %}
+    <input class="gains-js" name="winning" type="number">
+    {% endif %}
+</form>
 
 
 {% endblock %}
@@ -44,11 +63,11 @@
         if(num1.value == num2.value && num1.value == num3.value && num2.value == num3.value){
             gains.value = 100
         } else if(num1.value == num2.value || num1.value == num3.value || num2.value == num3.value){
-            if(num1.value > 0 && num1.value <= 5){
+            if(num1.value > 0 && num1.value <= 5 || num2.value > 0 && num2.value <= 5){
                 gains.value = 1
-            } else if(num1.value > 5 && num1.value <= 9){
+            } else if(num1.value > 5 && num1.value <= 9 || num2.value > 5 && num2.value <= 9){
                 gains.value = 4
-            } else if(num1.value == 0){
+            } else if(num1.value == 0 || num2.value == 0){
                 gains.value = 10
             }
         }
@@ -57,4 +76,7 @@
     print.addEventListener('click', printNum)
 
 </script>
+
+
+
 {% endblock %}

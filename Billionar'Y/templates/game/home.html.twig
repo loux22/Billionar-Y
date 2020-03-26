@@ -1,8 +1,47 @@
-{% extends 'base.html.twig' %}
-{% block title %}Home{% endblock %}
+{% extends 'base.html.twig' %} {% block link %}
+<link rel="stylesheet" href="{{ asset('/css/profil_g.css')}}"> {% endblock %} {% block title %}Home{% endblock %} {% block body %}
+<div class="banner">
+    <div class="bannerT">
+        <h1>Billionar’Y</h1>
+    </div>
+    <div class="bannerP">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo maecenas tincidunt ut commodo auctor laoreet in.</p>
+    </div>
+</div>
+
+<nav class="navbar navbar-dark bg-success">
+
+    <ul>
+        <li><a href="#"> Tous les jeux </a></li>
+        <li><a href="#"> Meilleurs jeux </a></li>
+        <li><a href="#"> Nouveaux jeux </a></li>
+        <li><a href="#"> Machine à sous </a></li>
+        <li><a href="#"> Jeux de table </a></li>
+    </ul>
+    <center>
+</nav>
+<form class="form-inline">
+    <div class="recherche">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" style="height: 36px;" type="submit">Search</button>
+    </div>
+</form>
+
+<div class="photo">
+    <div class="categ">
+        <img src="{{ asset('img/dés.jpg')}}" alt="">
+    </div>
+    <div class="categ">
+        <img src="{{ asset('img/dés.jpg')}}" alt="">
+    </div>
+    <div class="categ">
+        <img src="{{ asset('img/dés.jpg')}}" alt="">
+    </div>
+    <div class="categ">
+        <img src="{{ asset('img/dés.jpg')}}" alt="">
+        <p>Tous les jeux</p>
+    </div>
+</div>
 
 
-
-{% block body %}
-          <h1>home</h1>
 {% endblock %}
