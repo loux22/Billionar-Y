@@ -21,7 +21,10 @@ class AdminController extends AbstractController
      */
     public function userTable()
     {
-        return $this->render('admin/userTable.html.twig', []);
+        $navbar = false;
+        return $this->render('admin/userTable.html.twig', [
+            'navbar' => $navbar
+        ]);
     }
 
 
