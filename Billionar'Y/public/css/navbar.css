@@ -10,6 +10,7 @@
     color: white;
 }
 
+
 .header__nav .nav__list {
 	display: flex;
     list-style: none;
@@ -26,6 +27,7 @@
 
 	text-transform: uppercase;
     font-size: 20px;
+    color: white;
 
 }
 .header__nav .nav__item:hover{
@@ -55,7 +57,7 @@
     padding-left: 30px;
 }
 .nav-item-container:hover{
-    background-color: black;
+    /* background-color: black; */
 }
 .nav-item-img{
     height: 64px;
@@ -76,10 +78,17 @@
 }
 .nav-item-container__wrapper{
     font-size: 10px;
-    padding-top: 70px;
+    /* margin-top: 70px; */
     color: black;
     z-index: 99999;
     display: none;
+    /* background-color: black; */
+}    
+.nav-item-container__wrapper ul{
+    background-color: #4c4c4c;
+    margin: 50px 20px;
+    color: white;
+    list-style:none;
 }
 .flex{
     display: flex;
