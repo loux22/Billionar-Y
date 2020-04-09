@@ -201,8 +201,38 @@ class UserController extends AbstractController
       /**
      * @Route("/support", name="support")
      */
-    public function support(){
+    public function support(){ 
         return $this->render('user/support.html.twig');
 
 }
+    /**
+     * @Route("/dashboard/user", name="userDashboard")
+     */
+    public function userDashboard()
+    {
+        // $this->denyAccessUnlessGranted('ROLE_MEMBER');
+        // $navbar = false;
+        // $userLog = $this->getUser();
+
+        // $repository = $this->getDoctrine()->getRepository(Member::class);
+        // $member = $repository->getUserProfil($userLog);
+        // $member = $member[0];
+
+        // $repoGame = $this->getDoctrine()->getRepository(Game::class);
+        // $repoComment = $this->getDoctrine()->getRepository(Comment::class);
+
+        // $nbDowloadGame = $repoGame->findNbDownload($member);
+        // $nbGame = $repoGame->findNbGame($member);
+
+        // $nbComments = $repoComment->FindAllCommentGame($member);
+        // $nbComments = count($nbComments);
+
+        // return $this->render('member/dashboard.html.twig', [
+        //     'NbDowloadGame' => $nbDowloadGame,
+        //     'nbGame' => $nbGame,
+        //     'member' => $member,
+        //     'nbComments' => $nbComments,
+        //     'navbar' => $navbar
+        // ]);
+    }
 }
