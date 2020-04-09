@@ -84,6 +84,34 @@ class AdminController extends AbstractController
         ]);
     }
 
+        /**
+     * @Route("/dashboardGames/admin", name="adminDashboardGames")
+     */
+    public function userDashboardGames()
+    {
+        $navbar = false;
+        // $this->denyAccessUnlessGranted('ROLE_MEMBER');
+        // $navbar = false;
+        // $userLog = $this->getUser();
+
+        // $repository = $this->getDoctrine()->getRepository(Member::class);
+        // $member = $repository->getUserProfil($userLog);
+        // $member = $member[0];
+
+        // $repoGame = $this->getDoctrine()->getRepository(Game::class);
+        // $repoComment = $this->getDoctrine()->getRepository(Comment::class);
+
+        // $nbDowloadGame = $repoGame->findNbDownload($member);
+        // $nbGame = $repoGame->findNbGame($member);
+
+        // $nbComments = $repoComment->FindAllCommentGame($member);
+        // $nbComments = count($nbComments);
+
+        return $this->render('admin/dashboardGames.html.twig', [
+            'navbar' => $navbar
+        ]);
+    }
+
       
     
 }

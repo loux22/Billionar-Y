@@ -25,9 +25,6 @@
     font-size: 1.1em;
 }
 
-.sticky-footer{
-    bottom: 0px;
-}
 
 .bg{
     background-color: #3D3D3D;
@@ -85,4 +82,9 @@
 .dropdown-item:hover{
     background-color: #4B4B4B;
     color : whitesmoke;
+}
+
+
+.container__body-check{
+    margin-left: 40px;
 }
