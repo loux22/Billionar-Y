@@ -29,17 +29,20 @@
     <div class="moncercle">
         <p style="color: #39A448;font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;">1</p>
+    font-weight: bold; font-size: 44px;
+line-height: 83px;">1</p>
     </div>
     <div class="moncercle">
         <p style="color: #39A448;font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;">1</p>
+    font-weight: bold;font-size: 44px;
+line-height: 83px;">1</p>
     </div>
     <div class="moncercle">
         <p style="color: #39A448;font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;">1</p>
+    font-weight: bold;font-size: 44px;
+line-height: 83px;">1</p>
     </div>
 </div>
 
@@ -62,18 +65,21 @@ font-weight: bold; color: #FAFAFA;">Tirer</button>
 </ul>
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <p style="font-family: Montserrat;
+        <div class="container mt-5">
+            <p style="font-family: Montserrat;
 font-style: normal;
 font-weight: bold;
 font-size: 14px;
 line-height: 18px;align-items: center;
-text-align: justify; display: flex; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed sodales quam sed ut dignissim. Consequat orci pellentesque in nunc. Non, enim laoreet dui quisque id id ipsum, elementum cursus. Proin posuere non dictum a, aliquam sit augue
-            rhoncus consectetur. Felis venenatis semper sed senectus porttitor ac. Ac tincidunt vivamus lorem morbi. Enim aliquet ut scelerisque libero fames. Dolor quis amet laoreet sit. At posuere nec cursus sodales quisque ipsum dui pellentesque donec.
-            In tellus semper vulputate nec turpis placerat. Nullam vitae, leo ut nunc, ut consectetur libero facilisi. Imperdiet purus eget blandit nibh et at at. Tempor gravida tincidunt cras morbi interdum tincidunt. Placerat cursus lectus lectus eu.
-            Ultricies facilisi egestas purus ut aliquam ultrices eget praesent elementum. Turpis nisi, libero iaculis in. Felis consectetur vel blandit proin enim, malesuada. Vitae vitae diam purus integer platea elit, volutpat nunc purus. Nibh urna,
-            diam aliquam lacus, ac aliquam nulla aenean. Dolor vulputate mi ac nunc, viverra blandit odio nec. Ut ut risus, rhoncus lectus. Euismod sem elit ullamcorper proin duis scelerisque. Risus volutpat vitae non elit. Amet, adipiscing felis gravida
-            tellus pellentesque justo malesuada tellus accumsan. In aenean at natoque elit ac eu.</p>
+text-align: justify; display: flex; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed sodales quam sed ut dignissim. Consequat orci pellentesque in nunc. Non, enim laoreet dui quisque id id ipsum, elementum cursus. Proin posuere non dictum a, aliquam sit
+                augue rhoncus consectetur. Felis venenatis semper sed senectus porttitor ac. Ac tincidunt vivamus lorem morbi. Enim aliquet ut scelerisque libero fames. Dolor quis amet laoreet sit. At posuere nec cursus sodales quisque ipsum dui pellentesque
+                donec. In tellus semper vulputate nec turpis placerat. Nullam vitae, leo ut nunc, ut consectetur libero facilisi. Imperdiet purus eget blandit nibh et at at. Tempor gravida tincidunt cras morbi interdum tincidunt. Placerat cursus lectus
+                lectus eu. <br> Ultricies facilisi egestas purus ut aliquam ultrices eget praesent elementum. Turpis nisi, libero iaculis in. Felis consectetur vel blandit proin enim, malesuada. Vitae vitae diam purus integer platea elit, volutpat nunc
+                purus. Nibh urna, diam aliquam lacus, ac aliquam nulla aenean. Dolor vulputate mi ac nunc, viverra blandit odio nec. Ut ut risus, rhoncus lectus. Euismod sem elit ullamcorper proin duis scelerisque. Risus volutpat vitae non elit. Amet,
+                adipiscing felis gravida tellus pellentesque justo malesuada tellus accumsan. In aenean at natoque elit ac eu.</p>
+        </div>
     </div>
+
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <div class="container mt-5"></div>
         <table>
@@ -85,6 +91,14 @@ text-align: justify; display: flex; ">Lorem ipsum dolor sit amet, consectetur ad
                     <th>Gains</th>
                 </tr>
             </thead>
+            <tbody class="table_body">
+                {% for key,value in games %}
+                <tr>
+                    <td>{{value.winning}}</td>
+                    <td>{{value.dateR.date|date("m/d/Y")}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </div>
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
