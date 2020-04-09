@@ -29,6 +29,7 @@ class UserController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+        $navbar = true;
         $userlog = $this->getUser();
         if($userlog != null){
             return $this->redirectToRoute('games');
@@ -60,7 +61,10 @@ class UserController extends AbstractController
             $this -> addFlash('success','Vous étes inscris');
             return $this->redirectToRoute('login');
         }
-        return $this->render('user/register.html.twig', ['UserForm' => $form -> createView()]);
+        return $this->render('user/register.html.twig', [
+            'UserForm' => $form -> createView(),
+            'navbar' => $navbar
+            ]);
     }
 
     /**
@@ -68,6 +72,7 @@ class UserController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
+        $navbar = true;
         $userlog = $this->getUser();
         if($userlog != null){
             return $this->redirectToRoute('signup');
@@ -79,7 +84,8 @@ class UserController extends AbstractController
             $this -> addFlash('errors', 'erreur d\'authentification');
         }
         return $this->render('user/login.html.twig', [
-            'lastUsername' => $lastUsername
+            'lastUsername' => $lastUsername,
+            'navbar' => $navbar
         ]);
     }
 
@@ -96,6 +102,7 @@ class UserController extends AbstractController
      */
     public function profil(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+        $navbar = true;
         $user = $this->getUser();
         $avatarUser = $user -> getAvatar();
         if($user === null){
@@ -172,6 +179,7 @@ class UserController extends AbstractController
             'member' => $member,
             'age' => $age,
             'UserModifyForm' => $form -> createView(),
+            'navbar' => $navbar
             ]);
     }
     /**
@@ -179,7 +187,10 @@ class UserController extends AbstractController
      */
     public function profilModifyPassword(Request $request)
     {
-        return $this->render('user/profilModifyPassword.html.twig', []);
+        $navbar = true;
+        return $this->render('user/profilModifyPassword.html.twig', [
+            'navbar' => $navbar
+        ]);
     }
     
     /**
@@ -187,7 +198,10 @@ class UserController extends AbstractController
      */
     public function modifyPassword(Request $request)
     {
-        return $this->render('user/passwordForget.html.twig', []);
+        $navbar = true;
+        return $this->render('user/passwordForget.html.twig', [
+            'navbar' => $navbar
+        ]);
     }
 
 
@@ -196,16 +210,21 @@ class UserController extends AbstractController
      * @Route("/recoverPassword", name="recoverPassword")
      */
     public function recoverPassword(){
-        return $this->render('user/recoverPassword.html.twig');
+        $navbar = true;
+        return $this->render('user/recoverPassword.html.twig',[
+            'navbar' => $navbar
+        ]);
     }
 
       /**
      * @Route("/profil/historic", name="profilHistoric")
      */
     public function ProfilHistoric(){
+        $navbar = true;
         $member = $this -> getMember();
         return $this->render('user/profilHistoric.html.twig',[
-            'member' => $member
+            'member' => $member,
+            'navbar' => $navbar
         ]);
     }
 
@@ -213,39 +232,12 @@ class UserController extends AbstractController
      * @Route("/support", name="support")
      */
     public function support(){
+        $navbar = true;
         $member = $this -> getMember();
         return $this->render('user/support.html.twig',[
-            'member' => $member
+            'member' => $member,
+            'navbar' => $navbar
         ]);
 }
-    /**
-     * @Route("/dashboard/user", name="userDashboard")
-     */
-    public function userDashboard()
-    {
-        // $this->denyAccessUnlessGranted('ROLE_MEMBER');
-        // $navbar = false;
-        // $userLog = $this->getUser();
-
-        // $repository = $this->getDoctrine()->getRepository(Member::class);
-        // $member = $repository->getUserProfil($userLog);
-        // $member = $member[0];
-
-        // $repoGame = $this->getDoctrine()->getRepository(Game::class);
-        // $repoComment = $this->getDoctrine()->getRepository(Comment::class);
-
-        // $nbDowloadGame = $repoGame->findNbDownload($member);
-        // $nbGame = $repoGame->findNbGame($member);
-
-        // $nbComments = $repoComment->FindAllCommentGame($member);
-        // $nbComments = count($nbComments);
-
-        // return $this->render('member/dashboard.html.twig', [
-        //     'NbDowloadGame' => $nbDowloadGame,
-        //     'nbGame' => $nbGame,
-        //     'member' => $member,
-        //     'nbComments' => $nbComments,
-        //     'navbar' => $navbar
-        // ]);
-    }
+    
 }

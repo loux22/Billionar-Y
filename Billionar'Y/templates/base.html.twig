@@ -12,7 +12,7 @@
     {% block link %}{% endblock %}
 </head>
 <body>
-
+{% if navbar == true %}
     <header>
 		 
 
@@ -72,6 +72,7 @@
 	</div>
 </header>
 	</header>
+	{% endif %}
 	{# message erreur et success #}
         {% for message in app.flashes('success') %}
         <div class="alert alert-success">{{ message }}</div>

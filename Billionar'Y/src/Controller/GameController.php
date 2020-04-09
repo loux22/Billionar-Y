@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class GameController extends AbstractController
 {
     public function getMember(){
+        $navbar = true;
         $user = $this->getUser();
         $repository = $this-> getDoctrine() -> getRepository(Member::class);
         $member = $repository -> findBy([
@@ -28,9 +29,11 @@ class GameController extends AbstractController
      */
     public function home()
     {   
+        $navbar = true;
         $member = $this -> getMember();
         return $this->render('game/home.html.twig', [
-            'member' => $member
+            'member' => $member,
+            'navbar' => $navbar
         ]);
     }
 
@@ -39,6 +42,7 @@ class GameController extends AbstractController
      */
     public function ranking_winning($id, Request $request)
     {
+        $navbar = true;
         $member = $this -> getMember();
         $currentRoute = $request->attributes->get('_route');
         $currentUrl = $this->get('router')->generate($currentRoute, array('id' => $id), true);
@@ -76,7 +80,8 @@ class GameController extends AbstractController
         return $this->render('game/ranking_winning.html.twig', [
             'ranking' => $ranking,
             'id' => $id,
-            'member' => $member
+            'member' => $member,
+            'navbar' => $navbar
         ]);
     }
 
@@ -85,13 +90,15 @@ class GameController extends AbstractController
      */
     public function liste_game()
     {
+        $navbar = true;
         $member = $this -> getMember();
         $rep = $this->getDoctrine()->getRepository(Game::class);
         $games = $rep->findAll();
 
         return $this->render('game/games.html.twig', [
             'games' => $games,
-            'member' => $member
+            'member' => $member,
+            'navbar' => $navbar
             ]);
     }
 
@@ -101,6 +108,7 @@ class GameController extends AbstractController
      */
     public function game($id, Request $request)
     {
+        $navbar = true;
         $user = $this->getUser();
         if ($user == null) {
             return $this->redirectToRoute('login');
@@ -174,7 +182,8 @@ class GameController extends AbstractController
             'game' => $game,
             'note' => $note,
             'member' => $member,
-            'game1' => $game1
+            'game1' => $game1,
+            'navbar' => $navbar
         ]);
     }
 }
