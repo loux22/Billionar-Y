@@ -188,8 +188,10 @@ class UserController extends AbstractController
     public function profilModifyPassword(Request $request)
     {
         $navbar = true;
+        $member = $this -> getMember();
         return $this->render('user/profilModifyPassword.html.twig', [
-            'navbar' => $navbar
+            'navbar' => $navbar,
+            'member' => $member
         ]);
     }
     

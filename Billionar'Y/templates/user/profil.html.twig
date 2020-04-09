@@ -78,7 +78,6 @@
 			display: none;
 		}
 	</style> -->
-{{dump(member)}}
 <div class="container__top">
 	<div class="container__top-profile">
 		<div class="container__top-profile-img">
@@ -96,8 +95,8 @@
 		</div>
 	</div>
 		<div class="container__top-button">
-			<button type="submit">Modifier mot de passe</button>
-			<button type="submit">Modifier le profil</button>
+			<button class="modify-password-js" type="submit">Modifier mot de passe</button>
+			<button class="modify-profil-js" type="submit">Modifier le profil</button>
 		</div>
 </div>
 
@@ -119,7 +118,8 @@
 		</div>
 	</div>
 </div>
-<div class="container__bottom">
+
+<div class="container__bottom profil">
 	<div class="container__bottom-tabl">
 
 		<div class="container__bottom-tabl-a">
@@ -177,54 +177,54 @@
 	{% endif %}</a>
 		</div>
 	</div>
-	<!-- <div class="container__bottom-button">
-		<button type="submit">Confirmer</button>
-	</div> -->
 </div>
 
+<div class="password display">
+<form action="" method="post">
+<div class="container__bottom">
 
+    <div class="container__bottom-block">
+        <input type="password" placeholder="Ancien mot de passe" name="lastPassword">
+    </div>
+    <div class="container__bottom-block">
+       <input type="password" placeholder="Nouveau mot de passe" name="newPassword">
+    </div>
+    <div class="container__bottom-block">
+         <input type="password" placeholder="Confirmation" name="repeatNewPassword">
+    </div>
+	
+</div>
+	<div class="container__bottom-button">
+		<button type="submit">Confirmer</button>
+	</div>
+</form>
+</div>
+
+<style>
+.display{
+	display: none;
+}
+</style>
 
 {% endblock %}
 {% block js %}
 <script>
-    var displayBlock = document.querySelector(".display");
-    var formModify = document.querySelector(".formModify");
+    var profil = document.querySelector(".profil");
     var password = document.querySelector(".password");
 
-    var modifyProfil = document.querySelector(".modifyProfil-js")
-    var modifyPassword = document.querySelector(".modifyPassword-js")
+    var modifyProfil = document.querySelector(".modify-profil-js")
+    var modifyPassword = document.querySelector(".modify-password-js")
 
-    function displayForm() {
-        if (password.classList.contains('display')){
-            password.classList.replace('display', 'password');
-            formModify.classList.replace('formModify', 'display');
-        }
-        else if (displayBlock.classList.contains('display')) {
-            displayBlock.classList.replace('display', 'formModify');
-            formModify.classList.replace('formModify', 'display');
-        } else {
-            displayBlock.classList.replace('formModify', 'display');
-            formModify.classList.replace('display', 'formModify');
-        } 
-        
-
-    }
 
     function displayPassword() {
-        if (formModify.classList.contains('display')){
-            formModify.classList.replace('display', 'formModify');
-            password.classList.replace('password', 'display');
-        }
-        else if (displayBlock.classList.contains('display')) {
-            displayBlock.classList.replace('display', 'password');
-            password.classList.replace('password', 'display');
-        } else {
-            displayBlock.classList.replace('password', 'display');
-            password.classList.replace('display', 'password');
-        }
+    	if (password.classList.contains('display')) {
+            profil.classList.remove('display');
+            password.classList.add('display');
+        } 
+		console.log(1)
     }
 
-    modifyProfil.addEventListener('click', displayForm)
+
     modifyPassword.addEventListener('click', displayPassword)
 </script>
 {% endblock %}
