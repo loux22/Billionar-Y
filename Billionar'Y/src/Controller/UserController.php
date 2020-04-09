@@ -15,6 +15,15 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
+    public function getMember(){
+        $user = $this->getUser();
+        $repository = $this-> getDoctrine() -> getRepository(Member::class);
+        $member = $repository -> findBy([
+            'user' => $user
+        ]);
+        return $member;
+    }
+
     /**
      * @Route("/register", name="register")
      */
@@ -191,18 +200,23 @@ class UserController extends AbstractController
     }
 
       /**
-     * @Route("/profilHistoric", name="profilHistoric")
+     * @Route("/profil/historic", name="profilHistoric")
      */
     public function ProfilHistoric(){
-        return $this->render('user/profilHistoric.html.twig');
-
+        $member = $this -> getMember();
+        return $this->render('user/profilHistoric.html.twig',[
+            'member' => $member
+        ]);
     }
 
       /**
      * @Route("/support", name="support")
      */
     public function support(){
-        return $this->render('user/support.html.twig');
+        $member = $this -> getMember();
+        return $this->render('user/support.html.twig',[
+            'member' => $member
+        ]);
 
 }
 }

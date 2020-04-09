@@ -14,13 +14,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class GameController extends AbstractController
 {
+    public function getMember(){
+        $user = $this->getUser();
+        $repository = $this-> getDoctrine() -> getRepository(Member::class);
+        $member = $repository -> findBy([
+            'user' => $user
+        ]);
+        return $member;
+    }
 
     /**
      * @Route("/", name="home")
      */
     public function home()
-    {
-        return $this->render('game/home.html.twig', []);
+    {   
+        $member = $this -> getMember();
+        return $this->render('game/home.html.twig', [
+            'member' => $member
+        ]);
     }
 
     /**
@@ -28,6 +39,7 @@ class GameController extends AbstractController
      */
     public function ranking_winning($id, Request $request)
     {
+        $member = $this -> getMember();
         $currentRoute = $request->attributes->get('_route');
         $currentUrl = $this->get('router')->generate($currentRoute, array('id' => $id), true);
         $currentUrl = substr($currentUrl, -1);
@@ -63,7 +75,8 @@ class GameController extends AbstractController
 
         return $this->render('game/ranking_winning.html.twig', [
             'ranking' => $ranking,
-            'id' => $id
+            'id' => $id,
+            'member' => $member
         ]);
     }
 
@@ -72,10 +85,14 @@ class GameController extends AbstractController
      */
     public function liste_game()
     {
+        $member = $this -> getMember();
         $rep = $this->getDoctrine()->getRepository(Game::class);
         $games = $rep->findAll();
 
-        return $this->render('game/games.html.twig', ['games' => $games]);
+        return $this->render('game/games.html.twig', [
+            'games' => $games,
+            'member' => $member
+            ]);
     }
 
 

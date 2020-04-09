@@ -12,6 +12,7 @@
     {% block link %}{% endblock %}
 </head>
 <body>
+
     <header>
 		 
 
@@ -28,41 +29,44 @@
 	<div class="nav-list-container">
 	<nav class="header__nav">
 		<ul class="nav__list">
-			<li class="nav__item"><a href="{{ path('home') }}">Accueil</a></li>
-			<li class="nav__item"><a href="{{ path('games') }}">Jeux</a></li>
+			<li class="nav__item"><a href="{{ path('home') }}">Jeux</a></li>
 			<li class="nav__item"><a href="{{ path('ranking_winning',{'id' : 1}) }}">Top joueurs</a></li>
+			{% if app.user %}
 			<li class="nav__item">
 
+				
 				<div class="nav-item-container">
 					<div class="nav-item-img">
-						<img src="https://source.unsplash.com/user/erondu" alt="">
+						<img src="{{ asset('/avatar/')}}{{member[0].user.avatar}}" alt="">
 					</div>
 					<div class="nav-item-login">
 						<div class="nav-item-pseudo">
-							pseudo
+							{{app.user.pseudo}}
 						</div>
 						<div class="nav-item-credits">
-							180$
+							{{member[0].bank}} €
 						</div>
 					</div>
 					<div class="nav-item-container__wrapper">
 						<div class="item-container-profile">
 							
 									<ul>
-										profil
-									<li>Modifier le profil</li>
-									<li>Dépot d'argent</li>
-									<li>Retrait d'argent</li>
-								
-									<li>Mon historique</li>
-									<li>Mes transactions</li>
-									<li>Déconnexion</li>
+
+									<li><a href="{{ path('profil') }}">Profil</a></li>
+									<li><a href="{{ path('profilHistoric') }}">Mon historique</a></li>
+									<li><a href="">Mes transactions</a></li>
+									<li><a href="{{ path('logout') }}">Déconnexion</a></li>	
 								</ul>
 							</div>
 						</div>
 					</div>
+					
 				</div>
 			</li>
+			{% else %}
+			<li class="nav__item"><a href="{{ path('login') }}">Connexion</a></li>
+			<li class="nav__item"><a href="{{ path('register',{'id' : 1}) }}">Inscritpion</a></li>
+			{% endif %}
 		</ul>
 	</nav>
 	</div>
