@@ -56,9 +56,7 @@
     height: 100%;
     padding-left: 30px;
 }
-.nav-item-container:hover{
-    /* background-color: black; */
-}
+
 .nav-item-img{
     height: 64px;
     width: 64px;
@@ -86,7 +84,7 @@
 }    
 .nav-item-container__wrapper ul{
     background-color: #4c4c4c;
-    margin: 50px 20px;
+    margin  : 50px 20px;
     color: white;
     list-style:none;
 }
