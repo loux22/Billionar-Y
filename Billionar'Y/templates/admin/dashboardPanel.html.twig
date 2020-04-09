@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ asset('/css/sb-admin-2.min.css')}}">
 <link rel="stylesheet" href="{{ asset('/css/dashboard.css')}}">
 <link rel="stylesheet" href="{{ asset('/css/dashboard_member.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/dashboardPanel.css')}}">
 
 <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -142,62 +143,36 @@
 
             <!-- Begin Page Content -->
             <div class="container__top">
-                <h2>Mes jeux</h2>
-                <button class="button_top" type="button"><a href="#" class="button_top-text">Ajouter un jeu</a></button>
+                <h2>DASHBOARD</h2>
             </div>
             <div class="container__body">
-                <div class="container__body-t">
-                    <div class="container__body-t-t">
-                        <h4>Nom du jeu</h4>
-                    </div>
-                    <div class="container__body-t-i">
-                        <img src="{{ asset('/img/0.png')}}" alt="">
-                    </div>
-                </div>
+               <div class="container__body-cards">
 
-                <div class="container__body-t">
-                    <div class="container__body-t-t">
-                        <h4>Nom du jeu</h4>
+                    <div class="container__body-card" id="aa">
+                        <div class="container__body-card-top">
+                            <h4>Partie</h4>
+                            <p>100.000 000</p>
+                        </div>
+                        <a href="#"></a>
+                        <button><a href="{{ asset('/img/download.png')}}"></a></button>
                     </div>
-                    <div class="container__body-t-i">
-                        <img src="{{ asset('/img/0.png')}}" alt="">
+                    <div class="container__body-card 2" id="bb">
+                        <div class="container__body-card-top">
+                            <h4>Jeux</h4>
+                            <p>100.000 000</p>
+                        </div>
+                        <a href="#"></a>
+                        <button><a href="{{ asset('/img/download.png')}}"></a></button>
                     </div>
-                </div>
+                    <div class="container__body-card 3" id="cc">
+                        <div class="container__body-card-top">
+                            <h4>Argent</h4>
+                            <p>100.000 000</p>
+                        </div>
+                        <a href="#"></a>
+                        <button><a href="{{ asset('/img/download.png')}}"></a></button>
+                    </div>
 
-                <div class="container__body-t">
-                    <div class="container__body-t-t">
-                        <h4>Nom du jeu</h4>
-                    </div>
-                    <div class="container__body-t-i">
-                        <img src="{{ asset('/img/0.png')}}" alt="">
-                    </div>
-                </div>
-
-                <div class="container__body-t">
-                    <div class="container__body-t-t">
-                        <h4>Nom du jeu</h4>
-                    </div>
-                    <div class="container__body-t-i">
-                        <img src="{{ asset('/img/0.png')}}" alt="">
-                    </div>
-                </div>
-
-                <div class="container__body-t">
-                    <div class="container__body-t-t">
-                        <h4>Nom du jeu</h4>
-                    </div>
-                    <div class="container__body-t-i">
-                        <img src="{{ asset('/img/0.png')}}" alt="">
-                    </div>
-                </div>
-
-                <div class="container__body-t">
-                    <div class="container__body-t-t">
-                        <h4>Nom du jeu</h4>
-                    </div>
-                    <div class="container__body-t-i">
-                        <img src="{{ asset('/img/0.png')}}" alt="">
-                    </div>
                 </div>
             </div>
             <!-- End of Main Content -->
