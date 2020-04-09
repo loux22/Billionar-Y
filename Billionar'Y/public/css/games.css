@@ -1,0 +1,97 @@
+.banner {
+    background-image: url('../img/roulette.jpg ');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    max-height: 500px;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bannerT {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 59px;
+}
+
+.text h2 {
+    width: 143px;
+    height: 32px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: flex-end;
+    text-transform: uppercase;
+    color: #929292;
+    margin: 0;
+}
+
+.compte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.moncercle {
+    margin: 10px;
+    width: 100px;
+    background: white;
+    height: 100px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 100px;
+    line-height: 90px;
+}
+
+.tire {
+    width: 488px;
+    height: 36px;
+    text-align: center;
+    background: #39A448;
+    box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+
+.btn {}
+
+.text {
+    display: flex;
+    align-items: flex-end;
+}
+
+.deco {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    color: #39A448;
+    margin: 0;
+    height: 100%;
+}
+
+.space {
+    margin-top: 10px;
+}

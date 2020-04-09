@@ -82,7 +82,7 @@
 <div class="container__top">
 	<div class="container__top-profile">
 		<div class="container__top-profile-img">
-			<img src="https://source.unsplash.com/user/erondu" alt="">
+			<img src="{{ asset('/avatar/')}}{{member[0].user.avatar}}" alt="">
 		</div>
 		<div class="container__top-login">
 			<div class="container__top-login-pseudo">
@@ -115,7 +115,7 @@
 			<a href="#">Retrait</a>
 		</div>
 		<div class="container__mdl-menu-horiz-right">
-			<a href="#">250.50$</a>
+			<a href="#">{{member[0].bank}} €</a>
 		</div>
 	</div>
 </div>

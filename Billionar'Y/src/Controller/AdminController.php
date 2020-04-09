@@ -15,6 +15,19 @@ class AdminController extends AbstractController
         return $this->render('admin/loginAdmin.html.twig', []);
     }
 
+
+    /**
+     * @Route("/userTable", name="userTable")
+     */
+    public function userTable()
+    {
+        $navbar = false;
+        return $this->render('admin/userTable.html.twig', [
+            'navbar' => $navbar
+        ]);
+    }
+
+
     /**
      * @Route("/dashboard/admin", name="adminDashboard")
      */
@@ -71,4 +84,6 @@ class AdminController extends AbstractController
         ]);
     }
 
+      
+    
 }

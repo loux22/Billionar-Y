@@ -1,18 +1,74 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Home{% endblock %}
-
-{% block body %}
-{% for value in games %}
+{% extends 'base.html.twig' %} {% block link %}
+<link rel="stylesheet" href="{{ asset('/css/games.css')}}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endblock %} {% block title %}Home{% endblock %} {% block body %} {# {% for value in games %}
 <a href="{{ path('game', {id : value.id}) }}">
-<div style="border: 1px solid black;">
-    <img width="50px" height="50px" src="{{ asset('/imgGame/')}}{{value.img}}" alt="">
-    <p>{{value.name}}</p>
-    <p>{{value.descriptionG| slice(0,5)}} ...</p>
-    <p>nombre de fois jouer : {{value.nbPlay}}</p>
-    {# <p>note : {{value.note}}</p> #}
+    <div style="border: 1px solid black;">
+        <img width="50px" height="50px" src="{{ asset('/imgGame/')}}{{value.img}}" alt="">
+        <p>{{value.name}}</p>
+        <p>{{value.descriptionG| slice(0,5)}} ...</p>
+        <p>nombre de fois jouer : {{value.nbPlay}}</p>
+        {#
+        <p>note : {{value.note}}</p> #} {# </div>
+</a> #}
+<div class="banner">
+    <div class="b">
+        <div class="bannerT">
+            <h1>Machine à sous </h1>
+        </div>
+    </div>
 </div>
-</a>    
-{% endfor %}
+
+<div class="container space">
+    <div class="text">
+        <h2>Jackpote </h2>
+        <p class="deco">255654</p>
+    </div>
+</div>
+
+<div class="compte">
+    <div class="moncercle">
+        <p style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;">1</p>
+    </div>
+    <div class="moncercle">
+        <p style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;">1</p>
+    </div>
+    <div class="moncercle">
+        <p style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;">1</p>
+    </div>
+</div>
+
+<div class="btn">
+    <button class="tire">Tirer</button>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Règle du jeu</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mon historique</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Historique</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed sodales quam sed ut dignissim. Consequat orci pellentesque in nunc. Non, enim laoreet dui quisque id id ipsum, elementum cursus. Proin posuere non dictum a, aliquam sit augue
+            rhoncus consectetur. Felis venenatis semper sed senectus porttitor ac. Ac tincidunt vivamus lorem morbi. Enim aliquet ut scelerisque libero fames. Dolor quis amet laoreet sit. At posuere nec cursus sodales quisque ipsum dui pellentesque donec.
+            In tellus semper vulputate nec turpis placerat. Nullam vitae, leo ut nunc, ut consectetur libero facilisi. Imperdiet purus eget blandit nibh et at at. Tempor gravida tincidunt cras morbi interdum tincidunt. Placerat cursus lectus lectus eu.
+            Ultricies facilisi egestas purus ut aliquam ultrices eget praesent elementum. Turpis nisi, libero iaculis in. Felis consectetur vel blandit proin enim, malesuada. Vitae vitae diam purus integer platea elit, volutpat nunc purus. Nibh urna,
+            diam aliquam lacus, ac aliquam nulla aenean. Dolor vulputate mi ac nunc, viverra blandit odio nec. Ut ut risus, rhoncus lectus. Euismod sem elit ullamcorper proin duis scelerisque. Risus volutpat vitae non elit. Amet, adipiscing felis gravida
+            tellus pellentesque justo malesuada tellus accumsan. In aenean at natoque elit ac eu.</p>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+</div>
 
 {% endblock %}
