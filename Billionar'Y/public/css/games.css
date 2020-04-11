@@ -56,21 +56,25 @@ h1 {
     background: white;
     height: 100px;
     text-align: center;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 100px;
     line-height: 90px;
 }
 
+.botn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .tire {
-    width: 488px;
+    width: 408px;
     height: 36px;
     text-align: center;
     background: #39A448;
     box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
 }
-
-.btn {}
 
 .text {
     display: flex;
@@ -93,5 +97,11 @@ h1 {
 }
 
 .space {
-    margin-top: 10px;
+    margin-top: 20px;
+}
+
+.table_header td,
+.table_header th {
+    border-right: 1px solid #ddd;
+    padding: 8px;
 }
