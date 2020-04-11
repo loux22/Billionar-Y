@@ -2,6 +2,7 @@
 	{% extends 'base.html.twig' %}
 	{% block link %}
 	<link rel="stylesheet" href="{{ asset('/css/profil.css')}}">
+	<link rel="stylesheet" href="{{ asset('/css/profilModifyPassword.css')}}">
 	{% endblock %}
 	{% block title %}Profil{% endblock %}
 
@@ -17,13 +18,13 @@
 <div class="formModify">
 	{{form_start(UserModifyForm)}}
 
-	<div class="space">
+	
 		{% if form_errors(UserModifyForm.username) %}
 			{{form_errors(UserModifyForm.username)}}
 		{% endif %}
 		{{form_widget(UserModifyForm.username, { 'attr': {'class': 'lol'} })}}
 
-	</div>
+
 
 	<div class="space">
 		{% if form_errors(UserModifyForm.lastname) %}
@@ -200,6 +201,67 @@
 </form>
 </div>
 
+<div class="modify display">
+	{{form_start(UserModifyForm)}}
+<div class="container__bottom">
+	
+	<div class="container__bottom-tabl">
+
+		<div class="container__bottom-tabl-a">
+			<h3>Date de naissance</h3>
+		</div>
+		<div class="container__bottom-tabl-a">
+			<h3>Adresse</h3>
+		</div>
+
+		<div class="container__bottom-tabl-a">
+			{% if form_errors(UserModifyForm.age) %}
+			{{form_errors(UserModifyForm.age)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.age)}}
+		</div>
+		<div class="container__bottom-tabl-a">
+			<input type="text" name="adresse" id="adresse" placeholder="4 rue du chapeau rouge">
+		</div>
+		
+		<div class="container__bottom-tabl-a">
+			<h3>Adresse mail</h3>
+		</div>
+
+		<div class="container__bottom-tabl-a">
+			<h3>Ville</h3>
+		</div>
+		<div class="container__bottom-tabl-a">
+			<input type="email" name="email" id="email" placeholder="test@gmail.com" required autofocus>
+			<!-- <a href="#">test@gmail.com</a> -->
+		</div>
+
+		<div class="container__bottom-tabl-a">
+			<input type="text" name="city" id="city" placeholder="Sannois">
+		</div>
+
+		<div class="container__bottom-tabl-a">
+			<h3>Téléphone</h3>
+		</div>
+
+		<div class="container__bottom-tabl-a">
+			<h3>Code postal</h3>
+		</div>
+		<div class="container__bottom-tabl-a">
+			<input type="tel" name="tel" id="tel" placeholder="06.22.15.19.61">
+		</div>
+		<div class="container__bottom-tabl-a">
+			<input type="text" name="dep" id="dep" placeholder="95110">
+		</div>
+	</div>
+	
+	<div class="container__bottom-button">
+		<button type="submit">Confirmer</button>
+	</div>
+</div>
+{{form_end(UserModifyForm)}}
+</div>
+
 <style>
 .display{
 	display: none;
@@ -211,21 +273,41 @@
 <script>
     var profil = document.querySelector(".profil");
     var password = document.querySelector(".password");
+	var modify = document.querySelector(".modify");
 
     var modifyProfil = document.querySelector(".modify-profil-js")
     var modifyPassword = document.querySelector(".modify-password-js")
 
 
     function displayPassword() {
-    	if (password.classList.contains('display')) {
+    	if (password.classList.contains('display') && modify.classList.contains('display')) {
+            profil.classList.add('display');
+            password.classList.remove('display');
+        }else if(password.classList.contains('display') && profil.classList.contains('display')){
+			modify.classList.add('display');
+            password.classList.remove('display');
+		} else{
+			password.classList.add('display');
             profil.classList.remove('display');
-            password.classList.add('display');
-        } 
-		console.log(1)
+		}
+    }
+
+	function displayModify() {
+    	if (password.classList.contains('display') && modify.classList.contains('display')) {
+            profil.classList.add('display');
+            modify.classList.remove('display');
+        } else if(modify.classList.contains('display') && profil.classList.contains('display')){
+			password.classList.add('display');
+            modify.classList.remove('display');
+		} else{
+			modify.classList.add('display');
+			profil.classList.remove('display');
+		}
     }
 
 
     modifyPassword.addEventListener('click', displayPassword)
+	modifyProfil.addEventListener('click', displayModify)
 </script>
 {% endblock %}
 
