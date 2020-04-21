@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ asset('/css/profil_g.css')}}"> 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 {% endblock %} {% block title %}Home{% endblock %} {% block body %}
+{{dump(games)}}
 <div class="banner">
     <div class="b">
         <div class="bannerT">
@@ -32,55 +33,16 @@
 </form>
 
 <div class="photo">
+    {% for game in games %}
+    <a href="{{ path('game',{'id' : game.id}) }}">
     <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
+        <img src="{{ asset('imgGame/')}}{{game.img}}" alt="">
         <div class="text">
-            <p>Tous les jeux</p>
+            <p>{{game.name}}</p>
         </div>
     </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-        <p>Tous les jeux</p>
-    </div>
+</a>
+    {% endfor %}
 </div>
 
 <style>
