@@ -226,7 +226,7 @@ class UserController extends AbstractController
         $navbar = true;
         $member = $this -> getMember();
         return $this->render('user/profilHistoric.html.twig',[
-            'member' => $member,
+            'member' => $member[0],
             'navbar' => $navbar
         ]);
     }

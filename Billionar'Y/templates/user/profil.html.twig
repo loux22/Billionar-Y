@@ -7,9 +7,9 @@
 	{% block title %}Profil{% endblock %}
 
 	{% block body %}
-	<!-- 
+	
 
-	<button type="submit" class="modifyProfil-js">Modifier Profil</button>
+	{# <button type="submit" class="modifyProfil-js">Modifier Profil</button>
 	<button type="submit" class="modifyPassword-js">Modifier Mot de passe</button>
 
 
@@ -38,10 +38,6 @@
 			{{form_errors(UserModifyForm.pseudo)}}
 		{% endif %}
 		{{form_widget(UserModifyForm.pseudo,{ 'attr': {'class': 'pd'}})}}
-		{% if form_errors(UserModifyForm.age) %}
-			{{form_errors(UserModifyForm.age)}}
-		{% endif %}
-		{{form_widget(UserModifyForm.age)}}
 	</div>
 
     <div class="space">
@@ -78,19 +74,19 @@
 		.formModify, .password{
 			display: none;
 		}
-	</style> -->
+	</style>  #}
 <div class="container__top">
 	<div class="container__top-profile">
 		<div class="container__top-profile-img">
-			<img src="{{ asset('/avatar/')}}{{member[0].user.avatar}}" alt="">
+			<img src="{{ asset('/avatar/')}}{{member.user.avatar}}" alt="">
 		</div>
 		<div class="container__top-login">
 			<div class="container__top-login-pseudo">
-				<h3>{{member[0].user.pseudo}}</h3>
+				<h3>{{member.user.pseudo}}</h3>
 			</div>
 			<div class="container__top-login-username">
-				<a href="#">{{member[0].user.username}}</a>
-				<a href="#">{{member[0].user.lastname}}</a>
+				<a href="#">{{member.user.username}}</a>
+				<a href="#">{{member.user.lastname}}</a>
 				<a href="#">{{age}} ans</a>
 			</div>
 		</div>
@@ -115,7 +111,7 @@
 			<a href="#">Retrait</a>
 		</div>
 		<div class="container__mdl-menu-horiz-right">
-			<a href="#">{{member[0].bank}} €</a>
+			<a href="#">{{member.bank}} €</a>
 		</div>
 	</div>
 </div>
@@ -131,12 +127,12 @@
 		</div>
 
 		<div class="container__bottom-tabl-a">
-			<a href="#">{{member[0].user.age.date|date("d/m/Y")}}</a>
+			<a href="#">{{member.user.age.date|date("d/m/Y")}}</a>
 		</div>
 		<div class="container__bottom-tabl-a">
-			<a href="#">{% if member[0].address != null %}
+			<a href="#">{% if member.address != null %}
 		<p>addresse :
-			{{member[0].address}}</p>
+			{{member.address}}</p>
 	{% endif %}</a>
 		</div>
 		
@@ -148,11 +144,11 @@
 			<h3>Ville</h3>
 		</div>
 		<div class="container__bottom-tabl-a">
-			<a href="#">{{member[0].user.mail}}</a>
+			<a href="#">{{member.user.mail}}</a>
 		</div>
 
 		<div class="container__bottom-tabl-a">
-			<a href="#">{% if member[0].city != null %}
+			<a href="#">{% if member.city != null %}
 		<p>ville :
 			{{member[0].city}}</p>
 	{% endif %}</a>
@@ -166,13 +162,13 @@
 			<h3>Code postal</h3>
 		</div>
 		<div class="container__bottom-tabl-a">
-			<a href="#">{% if member[0].phone != null %}
+			<a href="#">{% if member.phone != null %}
 		<p>numero :
 			{{member[0].phone}}</p>
 	{% endif %}</a>
 		</div>
 		<div class="container__bottom-tabl-a">
-			<a href="#">{% if member[0].postal != null %}
+			<a href="#">{% if member.postal != null %}
 		<p>code postal :
 			{{member[0].postal}}</p>
 	{% endif %}</a>
@@ -181,6 +177,7 @@
 </div>
 
 <div class="password display">
+
 <form action="" method="post">
 <div class="container__bottom">
 
@@ -211,7 +208,7 @@
 			<h3>Date de naissance</h3>
 		</div>
 		<div class="container__bottom-tabl-a">
-			<h3>Adresse</h3>
+			<h3>Prénom</h3>
 		</div>
 
 		<div class="container__bottom-tabl-a">
@@ -221,37 +218,48 @@
 		{{form_widget(UserModifyForm.age)}}
 		</div>
 		<div class="container__bottom-tabl-a">
-			<input type="text" name="adresse" id="adresse" placeholder="4 rue du chapeau rouge">
+			{% if form_errors(UserModifyForm.username) %}
+			{{form_errors(UserModifyForm.username)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.username, { 'attr': {'class': 'lol'} })}}
 		</div>
 		
 		<div class="container__bottom-tabl-a">
-			<h3>Adresse mail</h3>
+			<h3>Nom de famille</h3>
 		</div>
 
 		<div class="container__bottom-tabl-a">
-			<h3>Ville</h3>
+			<h3>Pseudo</h3>
 		</div>
 		<div class="container__bottom-tabl-a">
-			<input type="email" name="email" id="email" placeholder="test@gmail.com" required autofocus>
-			<!-- <a href="#">test@gmail.com</a> -->
-		</div>
-
-		<div class="container__bottom-tabl-a">
-			<input type="text" name="city" id="city" placeholder="Sannois">
+			{% if form_errors(UserModifyForm.lastname) %}
+			{{form_errors(UserModifyForm.lastname)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.lastname, { 'attr': {'class': 'lol'}})}}
 		</div>
 
 		<div class="container__bottom-tabl-a">
-			<h3>Téléphone</h3>
+			{% if form_errors(UserModifyForm.pseudo) %}
+			{{form_errors(UserModifyForm.pseudo)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.pseudo,{ 'attr': {'class': 'pd'}})}}
 		</div>
 
 		<div class="container__bottom-tabl-a">
-			<h3>Code postal</h3>
+			<h3>Avatar</h3>
+		</div>
+
+		<div class="container__bottom-tabl-a">
+			
 		</div>
 		<div class="container__bottom-tabl-a">
-			<input type="tel" name="tel" id="tel" placeholder="06.22.15.19.61">
+			{% if form_errors(UserModifyForm.file) %}
+			{{form_errors(UserModifyForm.file)}}
+		{% endif %}
+		{{form_widget(UserModifyForm.file)}}
 		</div>
 		<div class="container__bottom-tabl-a">
-			<input type="text" name="dep" id="dep" placeholder="95110">
+			
 		</div>
 	</div>
 	
