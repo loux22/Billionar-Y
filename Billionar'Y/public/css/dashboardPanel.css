@@ -52,3 +52,13 @@
     position: absolute;
     bottom: 0px;
 }
+
+.container__body-card button{
+    background-color: #39A448;
+    border: none;
+}
+.container__body-card img{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
