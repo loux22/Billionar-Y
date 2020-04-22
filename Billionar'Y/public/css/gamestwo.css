@@ -1,0 +1,188 @@
+.banner {
+    background-image: url('../img/roulette.jpg ');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    max-height: 500px;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bannerT {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 59px;
+}
+
+.text h2 {
+    width: 143px;
+    height: 32px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: flex-end;
+    text-transform: uppercase;
+    color: #929292;
+    margin: 0;
+}
+
+.compte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.moncarrer11 {
+    width: 100px;
+    background: black;
+    height: 100px;
+    text-align: center;
+    border-radius: 1px;
+    line-height: 90px;
+}
+
+.moncarrer12 {
+    width: 100px;
+    background: red;
+    height: 100px;
+    text-align: center;
+    border-radius: 1px;
+    line-height: 90px;
+}
+
+.moncarrer {
+    width: 100px;
+    background: green;
+    height: 100px;
+    text-align: center;
+    border-radius: 1px;
+    line-height: 90px;
+}
+
+.cherch {
+    border-radius: 5px;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-start;
+    height: 47px;
+}
+
+.ip {
+    display: flex;
+    width: 384px;
+}
+
+.botn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red {
+    background: #FF0000;
+    border-radius: 6px;
+}
+
+.black {
+    background: black;
+    border-radius: 6px;
+}
+
+.zero {
+    background: green;
+    border-radius: 6px;
+}
+
+.tire {
+    width: 408px;
+    height: 36px;
+    text-align: center;
+    background: #39A448;
+    box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+
+.text {
+    display: flex;
+    align-items: flex-end;
+}
+
+.deco {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    color: #39A448;
+    margin: 0;
+    height: 100%;
+}
+
+.space {
+    margin-top: 20px;
+}
+
+.table_header td,
+.table_header th {
+    border-right: 1px solid #ddd;
+    padding: 8px;
+}
+
+.moncercle11 {
+    width: 32px;
+    background: black;
+    height: 32px;
+    text-align: center;
+    border-radius: 100px;
+    line-height: 90px;
+}
+
+.moncercle12 {
+    width: 32px;
+    background: red;
+    height: 32px;
+    text-align: center;
+    border-radius: 100px;
+    line-height: 90px;
+}
+
+.spa {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.moncercle {
+    width: 32px;
+    background: green;
+    height: 32px;
+    text-align: center;
+    border-radius: 100px;
+    line-height: 90px;
+}
+
+#btn-r {
+    float: right;
+}
