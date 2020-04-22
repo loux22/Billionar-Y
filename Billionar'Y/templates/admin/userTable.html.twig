@@ -3,7 +3,11 @@
 {% block title %}Classement{% endblock %}
 {% block link %} <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
                  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-                <link rel="stylesheet" href="{{ asset('/css/userTable.css')}}">
+
+                <link rel="stylesheet" href="{{ asset('/css/sb-admin-2.min.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/dashboard.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/dashboard_member.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/userTable.css')}}">
 
 {% endblock %}
 
@@ -11,60 +15,9 @@
 {% block body %}
 
 
-<div class="row">
-    <div class="col-sm-4">
-        <h3 class="title--left"> Admin </h3>
 
-        <ul class="list-group">
+  
         
-
-            <div id="ad"class="line"></div>
-
-
-            <div>
-                <img class="img--left" src="{{ asset('/img/dashboard.png')}}"  alt="">
-                <a href="#" class="list--left">Dashboard</a>
-            </div>
-            
-            <div class="line"></div>
-
-            
-            <h5> Jeux </h5>
-            <div>
-
-                <img class="img--left" src="{{ asset('/img/dashboard.png')}}"  alt="">
-                <a href="#" class="list--left">Jeux</a>
-            
-            </div>
-            
-
-            <div class="line"></div>
-
-
-            <h5> Utilisateurs </h5>
-            <div>
-
-                <img class="img--left" src="{{ asset('/img/tab.png')}}"  alt="">
-                <a href="#" class="list--left">Utilisateurs</a>
-
-            </div>
-
-            <div class="line"></div>
-
-        </ul>
-    
-    </div>
-
-    <div class="col-sm-8">
-        <div class="nav--ps">
-        
-            <div class="p--right">
-                <img src="{{ asset('/img/pp.png')}}"  alt="">
-                <a href="#" class="pp">profil</a>
-            </div>
-        
-        </div>
-        <div class="container">
 
             <h1> Tableau Utilisateurs </h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum tempora laborum reprehenderit doloribus commodi magni aliquid.</p>
@@ -157,11 +110,11 @@
         
 
 
-        </div>
+        
        
-    </div>
+
     
-</div>
+
 
 
 
