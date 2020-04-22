@@ -1,0 +1,100 @@
+.container__mdl-menu-horiz-left a{
+    padding: 0 90px 0 0;
+}
+
+.container__btm{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin: 0 70px;
+}
+.container__btm-nm-gm{
+    width: 25%;
+    margin-left: 200px;
+    text-align: start;
+}
+.container__btm-nm-gm p{
+    border-bottom: solid 3px #39A448;
+    padding-bottom: 5px;
+    font-family: Franklin Gothic Book;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+}
+.container__btm-nm-gm h3{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 22px;
+
+    color: #000000;
+}
+.container__btm-dt-gm{
+    width: 25%;
+}
+.container__btm-dt-gm p{
+    border-bottom: solid 3px #39A448;
+    padding-bottom: 5px;
+    font-family: Franklin Gothic Book;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+}
+.container__btm-dt-gm h3{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 22px;
+
+    color: #000000;
+}
+.container__btm-nbr-gm{
+    width: 25%;
+}
+.container__btm-nbr-gm p{
+    border-bottom: solid 3px #39A448;
+    padding-bottom: 5px;
+    font-family: Franklin Gothic Book;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+}
+.container__btm-nbr-gm h3{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 22px;
+
+    color: #000000;
+}
+.container__btm-gn{
+    width: 25%;
+    text-align: end;
+}
+.container__btm-gn p{
+    border-bottom: solid 3px #39A448;
+    padding-bottom: 5px;
+    font-family: Franklin Gothic Book;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+}
+.container__btm-gn h3{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 22px;
+
+    color: #000000;
+}
