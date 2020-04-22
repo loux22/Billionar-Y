@@ -171,6 +171,7 @@ h1 {
 .spa {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .moncercle {
@@ -180,4 +181,8 @@ h1 {
     text-align: center;
     border-radius: 100px;
     line-height: 90px;
+}
+
+#btn-r {
+    float: right;
 }
