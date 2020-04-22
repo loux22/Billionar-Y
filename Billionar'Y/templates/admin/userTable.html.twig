@@ -5,7 +5,7 @@
                  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
                 <link rel="stylesheet" href="{{ asset('/css/sb-admin-2.min.css')}}">
-<link rel="stylesheet" href="{{ asset('/css/dashboard.css')}}">
+{# <link rel="stylesheet" href="{{ asset('/css/dashboard.css')}}"> #}
 <link rel="stylesheet" href="{{ asset('/css/dashboard_member.css')}}">
 <link rel="stylesheet" href="{{ asset('/css/userTable.css')}}">
 
@@ -13,11 +13,6 @@
 
 
 {% block body %}
-
-
-
-  
-        
 
             <h1> Tableau Utilisateurs </h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum tempora laborum reprehenderit doloribus commodi magni aliquid.</p>
@@ -32,11 +27,11 @@
                                 <form method="post" action="">
                                     <p>Afficher
                                         <select size="1" id="liste" name="select">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5" selected>5</option>
+                                            <option value="5">5</option>
+                                            <option value="10" selected>10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="25">25</option>
                                         </select> Entitées <input type="submit" name="submit" class="btn btn-light btn-sm" value="Valider" />
                                     </p>
                                 </form>
@@ -48,40 +43,36 @@
                     <table class="table table-bordered" >
                         <tbody class="table_body">
                         <tr class="ligne">
-                            <td>id</td>
-                            <td>Nom</td>
-                            <td>Email</td>
-                            <td>Age</td>
-                            <td>Date de Création</td>
-                            <td></td>
+                            <th>id</th>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>Date de Création</th>
+                            <th>Bank</th>
+                            <th></th>
                         </tr>
-
+                        {% for member in members %}
+        
                         <tr class="ligne">
-                            <td>id</td>
-                            <td>Nom</td>
-                            <td>Email</td>
-                            <td>Age</td>
-                            <td>Date de Création</td>
-                            <td></td>
+                            <td>{{member.id}}</td>
+                            <td>{{member.user.pseudo}}</td>
+                            <td>{{member.user.mail}}</td>
+                            <td>{{member.user.age.date|date("d/m/Y")}}</td>
+                            <td>{{member.user.dateU.date|date("d/m/Y")}}</td>
+                            <td>{{member.bank}}</td>
+                            <td>
+                            {% if member.user.isActive == true %}
+                            <a href="{{ path('deactivateUser',{'id' : member.user.id}) }}">
+                            <img src="{{ asset('/img/trash.png')}}" alt="">
+                            </a>
+                            {% else %}
+                            <a href="{{ path('reactivateUser',{'id' : member.user.id}) }}">
+                            <img src="{{ asset('/img/reload.png')}}" alt="">
+                            </a>  
+                            {% endif %}
+                            </td>
                         </tr>
-
-                        <tr class="ligne">
-                            <td>id</td>
-                            <td>Nom</td>
-                            <td>Email</td>
-                            <td>Age</td>
-                            <td>Date de Création</td>
-                            <td></td>
-                        </tr>
-
-                        <tr class="ligne">
-                            <td>id</td>
-                            <td>Nom</td>
-                            <td>Email</td>
-                            <td>Age</td>
-                            <td>Date de Création</td>
-                            <td></td>
-                        </tr>
+                        {% endfor %}
 
                         </tbody>
                     </table>

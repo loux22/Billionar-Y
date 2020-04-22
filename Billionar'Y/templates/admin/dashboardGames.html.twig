@@ -20,7 +20,6 @@
 {% endblock %}
 
 {% block body %}
-
 <!-- Page Wrapper -->
 
 
@@ -34,7 +33,7 @@
                     <div class="container__body-card" id="aa">
                         <div class="container__body-card-top">
                             <h4>Partie</h4>
-                            <p>100.000 000</p>
+                            <p>{{g.nbParty}}</p>
                         </div>
                         <button><img src="{{ asset('/img/download.png')}}" alt=""></button>
                     </div>
@@ -42,7 +41,7 @@
                     <div class="container__body-card 3" id="cc">
                         <div class="container__body-card-top">
                             <h4>Gains</h4>
-                            <p>100.000 000</p>
+                            <p>{{earnings}}</p>
                         </div>
                         <a href="#"></a>
                         <button><img src="{{ asset('/img/joystick.png')}}" alt=""></button>
@@ -51,8 +50,15 @@
                 </div>
             </div>
             <div class="container__body-check">
-                <input type="checkbox" name="#" id="#" class="#">
-                <label for="scales">Activé</label>
+                <form action="{{ path('adminDashboardGame', {id : game.id}) }}" method="post">
+                                    {% if game.isActive == true %}
+                                        <input type="checkbox" name="checkOn" checked> Activer
+                                    {% endif %}
+                                    {% if game.isActive == false %}   
+                                        <input type="checkbox" name="checkOff"> Activer
+                                    {% endif %}
+                                    <button type="submit" name="submit" class="btn btn-link"><img src="{{ asset('/img/accept.png')}}" alt=""></button>
+                                </form>
             </div>
             <!-- End of Main Content -->
 

@@ -44,6 +44,27 @@ class HistoricRepository extends ServiceEntityRepository
         ;
     }
 
+    public function moneyByGame($game)
+    {
+        return $this->createQueryBuilder('h')
+            ->select("sum(h.nbParty) as nbParty, sum(h.total) as total")
+            ->andWhere('h.game = :game')
+            ->setParameter('game', $game)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function moneyByUser()
+    {
+        return $this->createQueryBuilder('h')
+            ->select("sum(h.nbParty) as nbParty, sum(h.total) as total")
+            ->groupBy('h.user')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Historic
     {
