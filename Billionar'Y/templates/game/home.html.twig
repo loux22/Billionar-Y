@@ -32,55 +32,16 @@
 </form>
 
 <div class="photo">
+    {% for game in games %}
+    <a href="{{ path('game',{'id' : game.id}) }}">
     <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
+        <img src="{{ asset('imgGame/')}}{{game.img}}" alt="">
         <div class="text">
-            <p>Tous les jeux</p>
+            <p>{{game.name}}</p>
         </div>
     </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-    </div>
-    <div class="categ">
-        <img src="{{ asset('img/dés.jpg')}}" alt="">
-        <div class="text">
-            <p>Tous les jeux</p>
-        </div>
-        <p>Tous les jeux</p>
-    </div>
+</a>
+    {% endfor %}
 </div>
 
 <style>

@@ -91,14 +91,14 @@ text-align: justify; display: flex; ">Lorem ipsum dolor sit amet, consectetur ad
                     <th>Gains</th>
                 </tr>
             </thead>
-            <tbody class="table_body">
+            {# <tbody class="table_body">
                 {% for key,value in games %}
                 <tr>
                     <td>{{value.winning}}</td>
                     <td>{{value.dateR.date|date("m/d/Y")}}</td>
                 </tr>
                 {% endfor %}
-            </tbody>
+            </tbody> #}
         </table>
     </div>
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>

@@ -32,6 +32,18 @@ class RankingWinningRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function HistoricRankingEarnings($game)
+    {
+        return $this->createQueryBuilder('w')
+            -> where('w.id_game = :game')
+            -> setParameter('game', $game)
+            ->orderBy('w.winning', 'DESC')
+            ->setMaxResults(100)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     
 
     /*

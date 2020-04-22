@@ -37,14 +37,14 @@
 				
 				<div class="nav-item-container">
 					<div class="nav-item-img">
-						<img src="{{ asset('/avatar/')}}{{member[0].user.avatar}}" alt="">
+						<img src="{{ asset('/avatar/')}}{{member.user.avatar}}" alt="">
 					</div>
 					<div class="nav-item-login">
 						<div class="nav-item-pseudo">
 							{{app.user.pseudo}}
 						</div>
 						<div class="nav-item-credits">
-							{{member[0].bank}} €
+							{{member.bank}} €
 						</div>
 					</div>
 					<div class="nav-item-container__wrapper">
@@ -54,7 +54,6 @@
 
 									<li><a href="{{ path('profil') }}">Profil</a></li>
 									<li><a href="{{ path('profilHistoric') }}">Mon historique</a></li>
-									<li><a href="">Mes transactions</a></li>
 									<li><a href="{{ path('logout') }}">Déconnexion</a></li>	
 								</ul>
 							</div>

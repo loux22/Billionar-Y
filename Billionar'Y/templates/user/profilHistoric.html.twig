@@ -1,22 +1,139 @@
-{% extends 'base.html.twig' %}{% block link %}
-<link rel="stylesheet" href="{{ asset('/css/profilHistoric.css')}}"> {% endblock %} {% block title %}ProfilHistoric{% endblock %} 
+{% extends 'base.html.twig' %}
+{% block link %}
+<link rel="stylesheet" href="{{ asset('/css/profilHistoric.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/profilModify.css')}}"> 
+{% endblock %} 
+{% block title %}ProfilHistoric{% endblock %} 
 
 {% block body %}
 
-	<button type="submit" class="modifyProfil-js">Modifier Profil</button>
+{#}	<button type="submit" class="modifyProfil-js">Modifier Profil</button>
 	<button type="submit" class="modifyPassword-js">Modifier Mot de passe</button>
 
 
 <div class="display">
-	<img width="50px" height="50px" src="{{ asset('/avatar/')}}{{member[0].user.avatar}}" alt="">
+	<img width="50px" height="50px" src="{{ asset('/avatar/')}}{{member.user.avatar}}" alt="">
 	<p>pseuso :
-		{{member[0].user.pseudo}}</p>
+		{{member.user.pseudo}}</p>
 	<p>prenom :
-		{{member[0].user.username}}</p>
+		{{member.user.username}}</p>
 	<p>nom de famille :
-		{{member[0].user.lastname}}</p>
+		{{member.user.lastname}}</p>
 	<p>age :
 		{{age}}
         ans</p>
-        
+</div>#}
+
+<div class="container__top">
+	<div class="container__top-profile">
+		<div class="container__top-profile-img">
+			<img src="https://source.unsplash.com/user/erondu" alt="">
+		</div>
+		<div class="container__top-login">
+			<div class="container__top-login-pseudo">
+				<h3>{{member.user.pseudo}}</h3>
+			</div>
+			<div class="container__top-login-username">
+				<a href="#">{{member.user.lastname}}</a>
+				<a href="#">{{member.user.username}}</a>
+				<a href="#">{#{{age}}#}</a>
+			</div>
+		</div>
+	</div>
+		<div class="container__top-button">
+			<button type="submit">Modifier mot de passe</button>
+			<button type="submit">Modifier le profil</button>
+		</div>
+</div>
+
+<div class="container__midl">
+	<div class="container__mdl-menu-vertcl">
+		<ul>
+			<li><a href="#">Général</a></li>
+			<li><a href="#">Historique</a></li>
+			<li><a href="#">Transactions</a></li>
+		</ul>
+	</div>
+	<div class="container__mdl-menu-horiz">
+		<div class="container__mdl-menu-horiz-left">
+			<a href="#">Dépot</a>
+			<a href="#">Retrait</a>
+		</div>
+		<div class="container__mdl-menu-horiz-right">
+			<a href="#">250.50$</a>
+		</div>
+	</div>
+</div>
+<div class="container__btm">
+	<div class="container__btm-nm-gm">
+	<h3>Nom du jeu</h3>
+	<br>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	</div>
+
+	<div class="container__btm-dt-gm">
+	<h3>Date</h3>
+	<br>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	</div>
+
+	<div class="container__btm-nbr-gm">
+	<h3>Nombre de partie</h3>
+	<br>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	</div>
+
+	<div class="container__btm-gn">
+	<h3>Gains</h3>
+	<br>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	</div>
+</div>
+		
+
+
         {% endblock %}

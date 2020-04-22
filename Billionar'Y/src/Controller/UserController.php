@@ -174,7 +174,7 @@ class UserController extends AbstractController
             }
             
         }
-
+        $member = $member[0];
         return $this->render('user/profil.html.twig', [
             'member' => $member,
             'age' => $age,
@@ -189,6 +189,7 @@ class UserController extends AbstractController
     {
         $navbar = true;
         $member = $this -> getMember();
+        $member = $member[0];
         return $this->render('user/profilModifyPassword.html.twig', [
             'navbar' => $navbar,
             'member' => $member
@@ -225,7 +226,7 @@ class UserController extends AbstractController
         $navbar = true;
         $member = $this -> getMember();
         return $this->render('user/profilHistoric.html.twig',[
-            'member' => $member,
+            'member' => $member[0],
             'navbar' => $navbar
         ]);
     }

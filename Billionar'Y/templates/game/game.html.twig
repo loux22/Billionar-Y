@@ -1,42 +1,82 @@
 {% extends 'base.html.twig' %}
-
+{% block link %}
+<link rel="stylesheet" href="{{ asset('/css/games.css')}}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endblock %}
 {% block title %}Home{% endblock %}
 
 {% block body %}
-{# {{dump(game1)}} #}
-<p>{{game.name}}</p>
-<p>{{game.descriptionG}}</p>
-<p>{{game.nbPlay}}</p>
-<img width="50px" height="50px" src="{{ asset('/imgGame/')}}{{game.img}}" alt="">
-<p>{{game.winningsMax}}</p>
-<p>{{note[0].note}}</p>
+<div class="banner">
+    <div class="b">
+        <div class="bannerT">
+            <h1>Machine à sous </h1>
+        </div>
+    </div>
+</div>
 
+<div class="container space">
+    <div class="text">
+        <h2>Jackpote </h2>
+        <p class="deco">{{ranking[0].winning}} €</p>
+    </div>
+</div>
+
+<div class="compte">
 <form method="post" >
     {% if game1.num1 is defined %}
-    <input class="num1-js" name="num1" type="number" value="{{game1.num1}}">
+    <input style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+line-height: 83px;" class="num1-js moncercle" name="num1" type="number" value="{{game1.num1}}" readonly>
     {% else %}
-    <input class="num1-js" name="num1" type="number">
+    <input style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+line-height: 83px;" class="num1-js moncercle" name="num1" type="number" readonly>
     {% endif %}
 
     {% if game1.num2 is defined %}
-    <input class="num2-js" name="num2" type="number" value="{{game1.num2}}">
+    <input style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+line-height: 83px;" class="num2-js moncercle" name="num2" type="number" value="{{game1.num2}}" readonly>
     {% else %}
-    <input class="num2-js" name="num2" type="number">
+    <input style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+line-height: 83px;" class="num2-js moncercle" name="num2" type="number" readonly>
     {% endif %}
 
     {% if game1.num3 is defined %}
-    <input class="num3-js" name="num3" type="number" value="{{game1.num3}}">
+    <input style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+line-height: 83px;" class="num3-js moncercle" name="num3" type="number" value="{{game1.num3}}" readonly>
     {% else %}
-    <input class="num3-js" name="num3" type="number">
+    <input style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+line-height: 83px;" class="num3-js moncercle" name="num3" type="number" readonly>
     {% endif %}
-    <button type="submit" class="print-js">Tirer</button>
+    <div class="botn "><button style="font-family: Montserrat;
+font-style: normal;
+font-weight: bold; color: #FAFAFA;" type="submit" class="print-js tire">Tirer</button></div>
 
     {% if member.bank >= 2 %}
 
     {% if game1.winning is defined %}
-    <input class="gains-js" name="winning" type="number" value="{{game1.winning}}">
+    {% if game1.winning != 0 %}
+    <input style="color: #39A448;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+    line-height: 83px; border: 1px solid #39A448;" class="gains-js moncercle" name="winning" type="number" value="{{game1.winning}}" readonly>
     {% else %}
-    <input class="gains-js" name="winning" type="number">
+    <input style="color: rgb(255, 0, 0);font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+    line-height: 83px; border: 1px solid rgb(255, 0, 0);" class="gains-js moncercle" name="winning" type="number" value="{{game1.winning}}" readonly>  
+    {% endif %}
+    {% else %}
+    <input style="border: 1px solid rgb(255, 0, 0);" class="gains-js moncercle" name="winning" type="number" readonly>
     {% endif %}
 
     {% else %}
@@ -44,11 +84,89 @@
     {% endif %}
 
 </form>
+</div>
+
+<ul class="nav nav-tabs space" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" style="color: #929292;">Règle du jeu</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style="color: #929292;">Mon historique</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" style="color: #929292; ">Historique</a>
+    </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="container mt-5">
+            <p style="font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 18px;align-items: center;
+text-align: justify; display: flex; ">{{game.descriptionG}}</p>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+       
+        <table class="table">
+            <thead class="table_header">
+                <tr>
+                    <th>Date</th>
+                    <th>Nombre de partie jouer</th>
+                    <th>Mise</th>
+                    <th>Gains</th>
+                </tr>
+            </thead>
+            <tbody class="table_body">
+                {% for value in myHistoric %}
+                {% if (value.nbParty * 2) - value.total <= 0 %}
+                <tr class="bg-success">
+                {% else %}
+                <tr class="bg-danger">
+                {% endif %}
+                    <td>{{value.date.date | date("d/m/Y")}}</td>
+                    <td>{{value.nbParty}}</td>
+                    <td>{{value.nbParty * 2}}</td>
+                    <td>{{ value.total - (value.nbParty * 2)}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+</div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <table class="table table-sm table-striped">
+            <thead class="table_header">
+                <tr>
+                    <th>Date</th>
+                    <th>Id</th>
+                    <th>Pseudo</th>
+                    <th>Gains</th>
+                </tr>
+            </thead>
+            <tbody class="table_body">
+                {% for value in ranking %}
+                    <td>{{value.dateR.date | date("d/m/Y")}}</td>
+                    <td>{{value.idMember.user.id}}</td>
+                    <td>{{value.idMember.user.pseudo}}</td>
+                    <td>{{ value.winning}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
 
 
 
 {% endblock %}
+
+
 
 {% block js %}
 <script>

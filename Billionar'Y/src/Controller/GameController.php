@@ -30,10 +30,18 @@ class GameController extends AbstractController
     public function home()
     {   
         $navbar = true;
+        $user = $this -> getUser();
         $member = $this -> getMember();
+        $rep = $this->getDoctrine()->getRepository(Game::class);
+        $games = $rep->findAll();
+        if($user != null){
+        $member = $member[0];
+        }
+        
         return $this->render('game/home.html.twig', [
             'member' => $member,
-            'navbar' => $navbar
+            'navbar' => $navbar,
+            'games' => $games
         ]);
     }
 
@@ -76,7 +84,7 @@ class GameController extends AbstractController
                 $ranking[] = $value;
             }
         }
-
+        $member = $member[0];
         return $this->render('game/ranking_winning.html.twig', [
             'ranking' => $ranking,
             'id' => $id,
@@ -92,6 +100,7 @@ class GameController extends AbstractController
     {
         $navbar = true;
         $member = $this -> getMember();
+        $member = $member[0];
         $rep = $this->getDoctrine()->getRepository(Game::class);
         $games = $rep->findAll();
 
@@ -148,13 +157,15 @@ class GameController extends AbstractController
                 $member->setBank($member->getBank() + 98);
                 $this->addFlash('success', 'jackpot');
             }
-            $ranking = new RankingWinning();
-            $ranking
+            if($game1['winning'] > 0){
+                $ranking = new RankingWinning();
+                $ranking
                 ->setIdMember($member)
                 ->setIdGame($game)
                 ->setWinning($game1['winning'])
                 ->setDateR(new \DateTime());
-            $manager->persist($ranking);
+                $manager->persist($ranking);
+            }
 
 
             if (empty($historic)) {
@@ -175,15 +186,21 @@ class GameController extends AbstractController
             $manager->persist($member);
             $manager->flush();
         }
-
-
+        $repoHistoric = $this->getDoctrine()->getRepository(Historic::class);
+        $myHistoric = $repoHistoric -> findBy([
+            'user' => $user
+        ]);
+        $repoRanking = $this->getDoctrine()->getRepository(RankingWinning::class);
+        $ranking = $repoRanking -> HistoricRankingEarnings($game);
 
         return $this->render('game/game.html.twig', [
             'game' => $game,
             'note' => $note,
             'member' => $member,
             'game1' => $game1,
-            'navbar' => $navbar
+            'navbar' => $navbar,
+            'myHistoric' => $myHistoric,
+            'ranking' => $ranking
         ]);
     }
 }
