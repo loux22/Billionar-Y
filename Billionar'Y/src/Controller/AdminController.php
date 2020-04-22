@@ -84,7 +84,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-        /**
+    /**
      * @Route("/dashboardGames/admin", name="adminDashboardGames")
      */
     public function userDashboardGames()
@@ -112,6 +112,5 @@ class AdminController extends AbstractController
         ]);
     }
 
-      
     
 }

@@ -1,9 +1,23 @@
 .col-sm-4 {
 
     background-color: #39A448;
+    height: auto;
 
 }
+.col-sm-8 {
 
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+h1{
+
+    font-family: 'Poppins', sans-serif;
+    color: black ;
+    padding-top: 95px;
+
+
+}
 .title--left {
 
     text-align: center;
@@ -25,11 +39,9 @@ h5{
     color: white;
     font-family: Montserrat;
     padding-left: 50px;
-}
-
-a{
     font-size: 20px ;
 }
+
 
 a:hover{
 
@@ -53,4 +65,94 @@ a:hover{
     margin-right: 10px;
     margin-top: 40px;
     margin-bottom: 40px;
+}
+#ad{
+    margin-top: 10px;
+}
+.nav--ps{
+    width: auto;
+    height: 66px;
+    background-color: #4C4C4C;
+}
+
+.p--right{
+
+    float: right;
+    padding-right: 5px;
+}
+
+.pp{
+
+    color: white;
+
+}
+
+
+.gu{
+
+    width: auto;
+    background-color: #39A448;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 10px;
+
+}
+
+.tback {
+    width: auto;
+    height: 2000px;
+    background-color: #4C4C4C;
+}
+
+table{
+    
+    text-align: center;
+    height: 50%;
+    font-family: 'Montserrat';
+    border-collapse: collapse;
+    width: 100%;
+    
+    
+}
+
+.ligne {
+    text-align: center;
+    background-color: #F8F8F8;
+    color: black;
+}
+
+.nvtable {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 10px;
+
+}
+
+.aff{
+      
+    color: white;
+    font-family: Montserrat;
+    padding-left: 50px;
+
+}
+
+
+#btn-right{
+
+    float:right;
+    margin-right: 15px;
+}
+
+#btn-c{
+
+    background-color: #EDEDED;
+    color: #BBBBBB;
+}
+
+.txt-left{
+
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 15px;
+
 }
