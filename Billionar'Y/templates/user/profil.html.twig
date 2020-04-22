@@ -3,78 +3,12 @@
 	{% block link %}
 	<link rel="stylesheet" href="{{ asset('/css/profil.css')}}">
 	<link rel="stylesheet" href="{{ asset('/css/profilModifyPassword.css')}}">
+	<link rel="stylesheet" href="{{ asset('/css/profilHistoric.css')}}">
 	{% endblock %}
 	{% block title %}Profil{% endblock %}
 
 	{% block body %}
 	
-
-	{# <button type="submit" class="modifyProfil-js">Modifier Profil</button>
-	<button type="submit" class="modifyPassword-js">Modifier Mot de passe</button>
-
-
-
-
-<div class="formModify">
-	{{form_start(UserModifyForm)}}
-
-	
-		{% if form_errors(UserModifyForm.username) %}
-			{{form_errors(UserModifyForm.username)}}
-		{% endif %}
-		{{form_widget(UserModifyForm.username, { 'attr': {'class': 'lol'} })}}
-
-
-
-	<div class="space">
-		{% if form_errors(UserModifyForm.lastname) %}
-			{{form_errors(UserModifyForm.lastname)}}
-		{% endif %}
-		{{form_widget(UserModifyForm.lastname, { 'attr': {'class': 'lol'}})}}
-	</div>
-
-	<div class="space">
-		{% if form_errors(UserModifyForm.pseudo) %}
-			{{form_errors(UserModifyForm.pseudo)}}
-		{% endif %}
-		{{form_widget(UserModifyForm.pseudo,{ 'attr': {'class': 'pd'}})}}
-	</div>
-
-    <div class="space">
-		{% if form_errors(UserModifyForm.file) %}
-			{{form_errors(UserModifyForm.file)}}
-		{% endif %}
-		{{form_widget(UserModifyForm.file)}}
-
-	</div>
-
-    <button type="submit">Confirmer</button>
-
-	{{form_end(UserModifyForm)}}
-</div>
-
-<div class="password">
-<form action="" method="post">
-        <input type="password" placeholder="Ancien mot de passe" name="lastPassword"><br>
-        <input type="password" placeholder="Nouveau mot de passe" name="newPassword"><br>
-        <input type="password" placeholder="Confirmation" name="repeatNewPassword"><br>
-
-        <button type="submit">Confirmer</button>
-
-    </form>
-</div>
-
-
-	<style>
-
-		.display {
-			display: block;
-		}
-
-		.formModify, .password{
-			display: none;
-		}
-	</style>  #}
 <div class="container__top">
 	<div class="container__top-profile">
 		<div class="container__top-profile-img">
@@ -150,7 +84,7 @@
 		<div class="container__bottom-tabl-a">
 			<a href="#">{% if member.city != null %}
 		<p>ville :
-			{{member[0].city}}</p>
+			{{member.city}}</p>
 	{% endif %}</a>
 		</div>
 
@@ -164,13 +98,13 @@
 		<div class="container__bottom-tabl-a">
 			<a href="#">{% if member.phone != null %}
 		<p>numero :
-			{{member[0].phone}}</p>
+			{{member.phone}}</p>
 	{% endif %}</a>
 		</div>
 		<div class="container__bottom-tabl-a">
 			<a href="#">{% if member.postal != null %}
 		<p>code postal :
-			{{member[0].postal}}</p>
+			{{member.postal}}</p>
 	{% endif %}</a>
 		</div>
 	</div>
@@ -269,7 +203,75 @@
 </div>
 {{form_end(UserModifyForm)}}
 </div>
+<div class="container__btm historic-js display">
+	<div class="container__btm-nm-gm">
+	<h3>Nom du jeu</h3>
+	<br>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	<p>Nom du jeu</p>
+	</div>
 
+	<div class="container__btm-dt-gm">
+	<h3>Date</h3>
+	<br>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	<p>31 / 01 / 1999</p>
+	</div>
+
+	<div class="container__btm-nbr-gm">
+	<h3>Nombre de partie</h3>
+	<br>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	<p>23</p>
+	</div>
+
+	<div class="container__btm-gn">
+	<h3>Gains</h3>
+	<br>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	<p>23.23</p>
+	</div>
+</div>
 <style>
 .display{
 	display: none;
@@ -282,6 +284,7 @@
     var profil = document.querySelector(".profil");
     var password = document.querySelector(".password");
 	var modify = document.querySelector(".modify");
+	var historic = document.querySelector(".historic-js");
 
     var modifyProfil = document.querySelector(".modify-profil-js")
     var modifyPassword = document.querySelector(".modify-password-js")
