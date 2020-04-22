@@ -203,4 +203,13 @@ class GameController extends AbstractController
             'ranking' => $ranking
         ]);
     }
+
+    /**
+     * @Route("/gametwo/{id}", name="gametwo")
+     */
+    public function gamestwo()
+    {
+        return $this->render('game/gamestwo.html.twig', []);
+    }
+
 }
