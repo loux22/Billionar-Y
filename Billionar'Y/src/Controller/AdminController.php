@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Game;
+use App\Entity\Historic;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
 {
@@ -29,7 +31,7 @@ class AdminController extends AbstractController
 
 
     /**
-     * @Route("/dashboard/admin", name="adminDashboard")
+     * @Route("/dashboard/admin/games", name="adminDashboardGames")
      */
     public function userDashboard()
     {
@@ -57,35 +59,43 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/dashboardPanel/admin", name="adminDashboardPanel")
+     * @Route("/dashboard/admin", name="adminDashboard")
      */
     public function userDashboardPanel()
     {
         $navbar = false;
         // $this->denyAccessUnlessGranted('ROLE_MEMBER');
-        // $navbar = false;
         // $userLog = $this->getUser();
 
         // $repository = $this->getDoctrine()->getRepository(Member::class);
         // $member = $repository->getUserProfil($userLog);
         // $member = $member[0];
 
-        // $repoGame = $this->getDoctrine()->getRepository(Game::class);
+        $repoGame = $this->getDoctrine()->getRepository(Game::class);
+        $nbParty = $repoGame->findNbParty();
+        $nbGame = $repoGame->findNbGames(true);
+
+        $repoHistoric = $this->getDoctrine()->getRepository(Historic::class);
+        $money =  $repoHistoric->money();
+        $money = $money[0]['total'] - ($money[0]['nbParty'] * 2) ;
         // $repoComment = $this->getDoctrine()->getRepository(Comment::class);
 
         // $nbDowloadGame = $repoGame->findNbDownload($member);
-        // $nbGame = $repoGame->findNbGame($member);
+        
 
         // $nbComments = $repoComment->FindAllCommentGame($member);
         // $nbComments = count($nbComments);
 
         return $this->render('admin/dashboardPanel.html.twig', [
-            'navbar' => $navbar
+            'navbar' => $navbar,
+            'nbParty' => $nbParty[0],
+            'nbGame' => $nbGame[0],
+            'money' => $money
         ]);
     }
 
     /**
-     * @Route("/dashboardGames/admin", name="adminDashboardGames")
+     * @Route("/dashboard/admin/game", name="adminDashboardGame")
      */
     public function userDashboardGames()
     {
