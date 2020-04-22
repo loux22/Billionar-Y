@@ -200,7 +200,8 @@ class GameController extends AbstractController
             'game1' => $game1,
             'navbar' => $navbar,
             'myHistoric' => $myHistoric,
-            'ranking' => $ranking
+            'ranking' => $ranking,
+            'id' => $id
         ]);
     }
 
@@ -210,10 +211,12 @@ class GameController extends AbstractController
     public function gamestwo()
     {
 
-        $navbar = false;
-
+        $navbar = true;
+        $member = $this -> getMember();
+        $member = $member[0];
         return $this->render('game/gamestwo.html.twig', [
-            'navbar' => $navbar
+            'navbar' => $navbar,
+            'member' => $member
         ]);
     }
 

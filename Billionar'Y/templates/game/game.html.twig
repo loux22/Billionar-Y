@@ -1,10 +1,17 @@
 {% extends 'base.html.twig' %}
 {% block link %}
+{% if id == 1 %}
 <link rel="stylesheet" href="{{ asset('/css/games.css')}}">
+{% else %}
+    <link rel="stylesheet" href="{{ asset('/css/gamestwo.css')}}">
+{% endif %}
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endblock %}
 {% block title %}Home{% endblock %}
 
 {% block body %}
+{% if id == 1 %}
+
 <div class="banner">
     <div class="b">
         <div class="bannerT">
@@ -160,7 +167,222 @@ text-align: justify; display: flex; ">{{game.descriptionG}}</p>
         </table>
     </div>
 </div>
+{% else %}
+    <div class="banner">
+    <div class="b">
+        <div class="bannerT">
+            <h1>Roulette </h1>
+        </div>
+    </div>
+</div>
 
+<div class="container space">
+    <div class="text">
+        <h2>Jackpote </h2>
+        <p class="deco">255654</p>
+    </div>
+
+    <div class="deco">
+        <div class="moncercle11">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold; font-size: 12px;
+        line-height: 15px; margin-top: 10px;">11</p>
+        </div>
+        <div class="moncercle11">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold; font-size: 12px;
+            line-height: 15px; margin-top: 10px;">11</p>
+        </div>
+        <div class="moncercle12">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold; font-size: 12px;
+        line-height: 15px; margin-top: 10px;">12</p>
+        </div>
+        <div class="moncercle11">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold; font-size: 12px;
+        line-height: 15px; margin-top: 10px;">11</p>
+        </div>
+        <div class="moncercle11">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold; font-size: 12px;
+            line-height: 15px; margin-top: 10px; ">11</p>
+        </div>
+        <div class="moncercle12">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold; font-size: 12px;
+        line-height: 15px; margin-top: 10px;">12</p>
+        </div>
+        <div class="moncercle">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold; font-size: 12px;
+        line-height: 15px; margin-top: 10px; ">0</p>
+        </div>
+        <div class="moncercle11">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold; font-size: 12px;
+            line-height: 15px;margin-top: 10px; ">11</p>
+        </div>
+        <div class="moncercle11">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold; font-size: 12px;
+            line-height: 15px;margin-top: 10px;">11</p>
+        </div>
+        <div class="moncercle12">
+            <p style="color: #FFFFFF;font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold; font-size: 12px;
+            line-height: 15px;margin-top: 10px;">12</p>
+        </div>
+    </div>
+</div>
+
+<div class="compte">
+
+    <div class="moncarrer11">
+        <p style="color:#FFFFFF;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+line-height: 83px;">11</p>
+    </div>
+    <div class="moncarrer12">
+        <p style="color: #FFFFFF;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;font-size: 44px;
+line-height: 83px;">12</p>
+    </div>
+    <div class="moncarrer11">
+        <p style="color: #FFFFFF;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;font-size: 44px;
+line-height: 83px;">11</p>
+    </div>
+    <div class="moncarrer12">
+        <p style="color: #FFFFFF;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;font-size: 44px;
+line-height: 83px;">12</p>
+    </div>
+    <div class="moncarrer">
+        <p style="color: #FFFFFF;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;font-size: 44px;
+line-height: 83px;">0</p>
+    </div>
+    <div class="moncarrer11">
+        <p style="color:#FFFFFF;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; font-size: 44px;
+line-height: 83px;">11</p>
+    </div>
+    <div class="moncarrer12">
+        <p style="color: #FFFFFF;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;font-size: 44px;
+line-height: 83px;">12</p>
+    </div>
+    <div class="moncarrer11">
+        <p style="color: #FFFFFF;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;font-size: 44px;
+line-height: 83px;">11</p>
+    </div>
+    <div class="moncarrer12">
+        <p style="color: #FFFFFF;font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;font-size: 44px;
+line-height: 83px;">12</p>
+    </div>
+</div>
+<div class="container ip ">
+    <div class="cherch">
+        <input type="search" name="" id="" class="cherch" placeholder="Mise">
+    </div>
+
+    <div class="botn ">
+        <button class="red" style="font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; color: #FFFFFF; margin : 5px;; width: 97px;
+    height: 37px;">Red</button>
+    </div>
+    <div class="botn ">
+        <button class="black" style="font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; color: #FFFFFF; margin : 5px; width: 97px;
+    height: 37px;">Black</button>
+    </div>
+    <div class="botn ">
+        <button class="zero" style="font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold; color: #FFFFFF; margin : 5px; width: 97px;
+    height: 37px;">0</button>
+    </div>
+    <div class="spa">
+        <div class="btn-group" role="group" aria-label="Basic example" id="btn-r">
+            <button type="button " class="btn btn-secondary " style="background:#EDEDED ; border: none;">Min</button>
+            <button type=" button " class="btn btn-secondary " style="background:#EDEDED ; border: none;">1/2</button>
+            <button type="button " class="btn btn-secondary " style="background:#EDEDED ; border: none;">x2</button>
+            <button type="button " class="btn btn-secondary " style="background:#EDEDED ; border: none;">Max</button>
+            <button type="button " class="btn btn-secondary " style="background:#EDEDED ; border: none;">Clear</button>
+        </div>
+    </div>
+</div>
+
+
+
+<ul class="nav nav-tabs space " id="myTab " role="tablist ">
+    <li class="nav-item ">
+        <a class="nav-link active " id="home-tab " data-toggle="tab " href="#home " role="tab " aria-controls="home " aria-selected="true " style="color: #929292; ">Règle du jeu</a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " id="profile-tab " data-toggle="tab " href="#profile " role="tab " aria-controls="profile " aria-selected="false " style="color: #929292; ">Mon historique</a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " id="contact-tab " data-toggle="tab " href="#contact " role="tab " aria-controls="contact " aria-selected="false " style="color: #929292; ">Historique</a>
+    </li>
+</ul>
+<div class="tab-content " id="myTabContent ">
+    <div class="tab-pane fade show active " id="home " role="tabpanel " aria-labelledby="home-tab ">
+        <div class="container mt-5 ">
+            <p style="font-family: Montserrat; font-style: normal; font-weight: bold; font-size: 14px; line-height: 18px;align-items: center; text-align: justify; display: flex; ">la Roulette, inventée par Blaise Pascal, est un des jeux les plus populaires des casinos. Très simple et accessible à tous, elle vous propose de deviner la case sur laquelle la bille lancée dans le cylindre va s’arrêter. Sur la Table, le Tapis de Jeu reprend les 37 numéros de la Roulette sur 3 colonnes de 12 cases marquées de 1 à 36, 18 rouges et 18 noires. Le 0 apparaît en vert au-dessus de tout. Sur le côté, d’autres cases indiquent les « Chances simples »
+</p>
+        </div>
+    </div>
+
+    <div class="tab-pane fade " id="profile " role="tabpanel " aria-labelledby="profile-tab ">
+        <div class="container mt-5 "></div>
+        <table>
+            <thead class="table_header ">
+                <tr>
+                    <th>Date</th>
+                    <th>Id</th>
+                    <th>Mise</th>
+                    <th>Gains</th>
+                </tr>
+            </thead>
+            {#
+            <tbody class="table_body ">
+                {% for key,value in games %}
+                <tr>
+                    <td>{{value.winning}}</td>
+                    <td>{{value.dateR.date|date("m/d/Y ")}}</td>
+                </tr>
+                {% endfor %}
+            </tbody> #}
+        </table>
+    </div>
+    <div class="tab-pane fade " id="contact " role="tabpanel " aria-labelledby="contact-tab ">...</div>
+</div>
+{% endif %}
 
 
 
