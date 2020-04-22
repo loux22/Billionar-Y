@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Game;
 use App\Entity\Note;
 use App\Entity\User;
 use App\Entity\Member;
 use App\Form\UserType;
+use App\Entity\Historic;
 use App\Form\UserModifyType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -174,12 +176,20 @@ class UserController extends AbstractController
             }
             
         }
+        $manager = $this->getDoctrine()->getManager();
+        $game = $manager->find(Game::class, 1);
+        $repoHistoric = $this->getDoctrine()->getRepository(Historic::class);
+        $myHistoric = $repoHistoric -> findBy([
+            'user' => $user
+        ]);
+        
         $member = $member[0];
         return $this->render('user/profil.html.twig', [
             'member' => $member,
             'age' => $age,
             'UserModifyForm' => $form -> createView(),
-            'navbar' => $navbar
+            'navbar' => $navbar,
+            'myHistoric' => $myHistoric
             ]);
     }
     /**
