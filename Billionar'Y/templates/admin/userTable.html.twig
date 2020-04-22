@@ -3,7 +3,11 @@
 {% block title %}Classement{% endblock %}
 {% block link %} <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
                  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-                <link rel="stylesheet" href="{{ asset('/css/userTable.css')}}">
+
+                <link rel="stylesheet" href="{{ asset('/css/sb-admin-2.min.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/dashboard.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/dashboard_member.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/userTable.css')}}">
 
 {% endblock %}
 
@@ -11,60 +15,9 @@
 {% block body %}
 
 
-<div class="row">
-    <div class="col-sm-4">
-        <h3 class="title--left"> Admin </h3>
 
-        <ul class="list-group">
+  
         
-
-            <div id="ad"class="line"></div>
-
-
-            <div>
-                <img class="img--left" src="{{ asset('/img/dashboard.png')}}"  alt="">
-                <a href="#" class="list--left">Dashboard</a>
-            </div>
-            
-            <div class="line"></div>
-
-            
-            <h5> Jeux </h5>
-            <div>
-
-                <img class="img--left" src="{{ asset('/img/dashboard.png')}}"  alt="">
-                <a href="#" class="list--left">Jeux</a>
-            
-            </div>
-            
-
-            <div class="line"></div>
-
-
-            <h5> Utilisateurs </h5>
-            <div>
-
-                <img class="img--left" src="{{ asset('/img/tab.png')}}"  alt="">
-                <a href="#" class="list--left">Utilisateurs</a>
-
-            </div>
-
-            <div class="line"></div>
-
-        </ul>
-    
-    </div>
-
-    <div class="col-sm-8">
-        <div class="nav--ps">
-        
-            <div class="p--right">
-                <img src="{{ asset('/img/pp.png')}}"  alt="">
-                <a href="#" class="pp">profil</a>
-            </div>
-        
-        </div>
-        <div class="container">
 
             <h1> Tableau Utilisateurs </h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum tempora laborum reprehenderit doloribus commodi magni aliquid.</p>
@@ -74,8 +27,21 @@
             <div class="tback">
                 <div class="nvtable">
                 
-                    <a href="#" class="st"> Afficher </a>
-                
+                    <div class="container space">
+                            <div class="text">
+                                <form method="post" action="">
+                                    <p>Afficher
+                                        <select size="1" id="liste" name="select">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5" selected>5</option>
+                                        </select> Entitées <input type="submit" name="submit" class="btn btn-light btn-sm" value="Valider" />
+                                    </p>
+                                </form>
+                            </div>
+                    </div>
                 </div>
 
                 <div class="container">
@@ -120,16 +86,35 @@
                         </tbody>
                     </table>
                 </div>
-            
+                <div>
+                    <div class="btn-group" id="btn-right" role="group" aria-label="Basic example">
+
+                        <button type="button" class="btn btn-secondary" id="btn-c"> < </button>
+                        <button type="button" class="btn btn-secondary" id="btn-c"> 1 </button>
+                        <button type="button" class="btn btn-secondary" id="btn-c"> 2 </button>
+                        <button type="button" class="btn btn-secondary" id="btn-c"> 3 </button>
+                        <button type="button" class="btn btn-secondary" id="btn-c"> 4 </button>
+                        <button type="button" class="btn btn-secondary" id="btn-c"> 5 </button>
+                        <button type="button" class="btn btn-secondary" id="btn-c"> > </button>
+                        
+                    </div>
+
+                    <div class="txt-left">
+
+                    <p> Showing 1 to 10 of 57 entries </p>
+                
+                    </div>
+                </div>
+                
             </div>
         
 
 
-        </div>
+        
        
-    </div>
+
     
-</div>
+
 
 
 

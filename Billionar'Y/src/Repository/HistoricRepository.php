@@ -35,6 +35,14 @@ class HistoricRepository extends ServiceEntityRepository
         ;
     }
     
+    public function money()
+    {
+        return $this->createQueryBuilder('h')
+            ->select("sum(h.nbParty) as nbParty, sum(h.total) as total")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     /*
     public function findOneBySomeField($value): ?Historic

@@ -39,12 +39,9 @@ h5{
     color: white;
     font-family: Montserrat;
     padding-left: 50px;
+    font-size: 20px ;
 }
 
-a{
-    font-size: 20px ;
-    color: white;
-}
 
 a:hover{
 
@@ -122,11 +119,40 @@ table{
     text-align: center;
     background-color: #F8F8F8;
     color: black;
-  }
+}
 
 .nvtable {
     color: white;
     font-family: 'Poppins', sans-serif;
+    padding-top: 10px;
 
-  }
+}
 
+.aff{
+      
+    color: white;
+    font-family: Montserrat;
+    padding-left: 50px;
+
+}
+
+
+#btn-right{
+
+    float:right;
+    margin-right: 15px;
+}
+
+#btn-c{
+
+    background-color: #EDEDED;
+    color: #BBBBBB;
+}
+
+.txt-left{
+
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 15px;
+
+}
