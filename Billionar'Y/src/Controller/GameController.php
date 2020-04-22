@@ -209,7 +209,12 @@ class GameController extends AbstractController
      */
     public function gamestwo()
     {
-        return $this->render('game/gamestwo.html.twig', []);
+
+        $navbar = false;
+
+        return $this->render('game/gamestwo.html.twig', [
+            'navbar' => $navbar
+        ]);
     }
 
 }
